@@ -23,7 +23,7 @@
   (let [count (:count session 0)
         session (assoc session :count (inc count))]
     (println "counter =>" count)
-    (-> (response (str "You accessed this page " count " times\n"))
+    (-> (response (str "You accessed this page " 1000  " times\n"))
       (assoc :session session))))
 
 (defn reverser
