@@ -52,7 +52,7 @@
     (-> routes
       (immutant.web.middleware/wrap-session
         {:timeout 20})
-      #_(immutant.web.middleware/wrap-websocket
+      (immutant.web.middleware/wrap-websocket
         {:on-open (fn [ch] (println "You opened a websocket!"))}))
     (merge {"host" (env :demo-web-host), "port" (env :demo-web-port)}
       args)))
