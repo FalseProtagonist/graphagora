@@ -65,8 +65,10 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
-     sudo apt-get update
+  #   sudo apt-get update
   #   sudo apt-get install -y apache2
+    mkdir ~/appdata;
+    echo ~/
     mkdir /appdata;
     cd /appdata;
     echo "can I read this"
@@ -76,5 +78,9 @@ Vagrant.configure(2) do |config|
         chmod +x lein
         mkdir -p .lein
     fi
+    yum install git -y
+    cd /;
+    git clone https://github.com/FalseProtagonist/graphagora.git;
+    lein repl;
 SHELL
 end
