@@ -23,7 +23,7 @@
   (let [count (:count session 0)
         session (assoc session :count (inc count))]
     (println "counter =>" count)
-    (-> (response (str "You accessed this page " count " times\n"))
+    (-> (response (str "You accessed this page " 0.0.0  " times\n"))
       (assoc :session session))))
 
 (defn reverser
@@ -54,5 +54,19 @@
         {:timeout 20})
       (immutant.web.middleware/wrap-websocket
         {:on-open (fn [ch] (println "You opened a websocket!"))}))
+    (merge {"host" (env :demo-web-host), "port" (env :demo-web-port)}
+      args)))
+
+(def defaults ["host" "0.0.0.0" "port" 8080])
+
+
+(defn reload-main [& {:as args}]
+  (web/run
+    (-> routes
+      (immutant.web.middleware/wrap-session
+        {:timeout 20})
+      (immutant.web.middleware/wrap-websocket
+        {:on-open (fn [ch] (println "You opened a websocket!"))})
+      reload/wrap-reload)
     (merge {"host" (env :demo-web-host), "port" (env :demo-web-port)}
       args)))
