@@ -22,12 +22,11 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-
+   config.vm.network "forwarded_port", guest: 8080, host: 1234
+ 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-
+#   config.vm.network "private_network", ip: "192.168.33.10"
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
@@ -69,14 +68,18 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
 #    mkdir ~/appdata;
     echo "marc up in this script"
-#    pwd  
+#    pwd
+    su vagrant
+    echo user is $USER  
     wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
     if [ -f lein ]; then
         chmod +x lein
-        mkdir -p .lein
+        #mkdir -p .lein
     fi
     yum install git -y
     git clone https://github.com/FalseProtagonist/graphagora.git;
-    export MY_LEIN="/home/vagrant/lein"
+#    export MY_LEIN="/home/vagrant/lein"
+#    ./lein
+#./lein
 SHELL
 end
