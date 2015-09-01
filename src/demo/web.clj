@@ -43,14 +43,14 @@
 (defroutes routes
  ; (GET "/" {c :context} (redirect (str c "/index.html")))
   (GET "/counter"  [] counter)
-  (GET "/" {c :context} (redirect (str c "/hello.html")))
+  (GET "/" {c :context} (redirect (str c "/index.html")))
   (GET "/reverser" [] reverser)
   (GET "/sse"      [] sse/countdown)
   (GET "/http-kit" [] hk/async-handler)
   (route/resources "/")
   (ANY "*" [] echo))
 
-(defn -main [& {:as args}]
+#_(defn -main [& {:as args}]
   (web/run
     (-> routes
       (immutant.web.middleware/wrap-session
@@ -59,6 +59,8 @@
         {:on-open (fn [ch] (println "You opened a websocket!"))}))
     (merge {"host" (env :demo-web-host), "port" (env :demo-web-port)}
       args)))
+
+
 
 (def defaults ["host" "0.0.0.0" "port" 8080])
 
@@ -73,3 +75,5 @@
       reload/wrap-reload)
     (merge {"host" (env :demo-web-host), "port" (env :demo-web-port)}
       args)))
+
+(defn -main [& {:as args}] (apply reload-main defaults))
