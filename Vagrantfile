@@ -37,7 +37,9 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+config.vm.synced_folder "/home/zimablue/projects/graphagora", "/home/vagrant/graphagora"
 
+config.vm.synced_folder "/home/zimablue/projects/cljs-kickoff", "/home/vagrant/cljs-kickoff"
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -77,7 +79,8 @@ Vagrant.configure(2) do |config|
         #mkdir -p .lein
     fi
     yum install git -y
-    git clone https://github.com/FalseProtagonist/graphagora.git;
+# using synced folder instead?
+#    git clone https://github.com/FalseProtagonist/graphagora.git;
 #    export MY_LEIN="/home/vagrant/lein"
 #    ./lein
 #./lein

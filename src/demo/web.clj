@@ -8,7 +8,9 @@
             [compojure.core     :refer (ANY GET defroutes)]
             [ring.util.response :refer (response redirect content-type)]
             [clojure.pprint     :refer (pprint)]
-            [environ.core       :refer (env)]))
+            [environ.core       :refer (env)]
+            [ring.middleware.reload :as reload]
+            [net.cgrand.reload :refer [auto-reload]]))
 
 (defn echo
   "Echos the request back as a string."
@@ -23,7 +25,7 @@
   (let [count (:count session 0)
         session (assoc session :count (inc count))]
     (println "counter =>" count)
-    (-> (response (str "You accessed this page " 0.0.0  " times\n"))
+    (-> (response (str "You accessed this page " "0.0.1"  " times\n"))
       (assoc :session session))))
 
 (defn reverser
@@ -39,8 +41,9 @@
 
 
 (defroutes routes
-  (GET "/" {c :context} (redirect (str c "/index.html")))
+ ; (GET "/" {c :context} (redirect (str c "/index.html")))
   (GET "/counter"  [] counter)
+  (GET "/" {c :context} (redirect (str c "/hello.html")))
   (GET "/reverser" [] reverser)
   (GET "/sse"      [] sse/countdown)
   (GET "/http-kit" [] hk/async-handler)

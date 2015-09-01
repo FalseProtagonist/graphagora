@@ -1,13 +1,16 @@
 (defproject demo "0.2.0-SNAPSHOT"
-  :description "Demo of Immutant 2.x libraries"
+  :description "This will graph2"
   :url "http://github.com/immutant/feature-demo"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :source-paths ["src/cljs" "src"]
   :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "0.0-2069"]
                  [org.immutant/immutant "2.0.2"]
                  [enlive "1.1.5"]
                  [compojure "1.3.4"]
                  [ring/ring-devel "1.3.1"]
+                 [ring/ring-defaults "0.1.3"]
                  [org.clojure/core.memoize "0.5.6"]
                  [clj-time "0.9.0"]
                  [cheshire "5.4.0"]
@@ -16,8 +19,22 @@
                  [com.h2database/h2 "1.3.176"]]
   :repositories [["Immutant incremental builds"
                   "http://downloads.immutant.org/incremental/"]]
-  :plugins [[lein-immutant "2.0.0"]]
+  :plugins [[lein-immutant "2.0.0"] [lein-cljsbuild "1.0.0"]]
+  :cljsbuild {:builds
+              [{;; CLJS source code path
+                :source-paths ["src/cljs"]
+
+                ;; Google Closure (CLS) options configuration
+                :compiler {;; CLS generated JS script filename
+                           :output-to "resources/public/js/app.js"
+
+                           ;; minimal JS optimization directive
+                           :optimizations :whitespace
+
+                           ;; generated JS code prettyfication
+                           :pretty-print true}}]}
   :main demo.core
+;  :main demo.madeup
   :uberjar-name "demo-standalone.jar"
   :min-lein-version "2.4.0"
   :jvm-opts ["-Dhornetq.data.dir=target/hornetq-data"
