@@ -32,7 +32,8 @@
                            :optimizations :whitespace
 
                            ;; generated JS code prettyfication
-                           :pretty-print true}}]}
+                           :pretty-print true
+                           :libs ["resources/libs/d3.v3.min.js"]}}]}
   :main demo.core
 ;  :main demo.madeup
   :uberjar-name "demo-standalone.jar"

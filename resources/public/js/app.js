@@ -22543,5 +22543,12 @@ cljs.core.special_symbol_QMARK_ = function special_symbol_QMARK_(x) {
 };
 goog.provide("demo.app");
 goog.require("cljs.core");
-document.write("Hello, ClojureScript!");
-alert("hello, world!");
+demo.app.add_element = function add_element() {
+  return d3.select("div").selectAll("p").data(cljs.core.clj__GT_js.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["this is", "d3"], null))).enter().append("p").text("this is d3")
+};
+demo.app.main = function main() {
+  document.write("Hello, ClojureScript3!");
+  alert("hello, world!");
+  return demo.app.add_element.call(null)
+};
+demo.app.main.call(null);
