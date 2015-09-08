@@ -19,7 +19,9 @@
                  [com.h2database/h2 "1.3.176"]]
   :repositories [["Immutant incremental builds"
                   "http://downloads.immutant.org/incremental/"]]
-  :plugins [[lein-immutant "2.0.0"] [lein-cljsbuild "1.0.0"]]
+  :plugins [[lein-immutant "2.0.0"] 
+            [lein-cljsbuild "1.0.0"]
+            [cider/cider-nrepl "0.9.1"]]
   :cljsbuild {:builds
               [{;; CLJS source code path
                 :source-paths ["src/cljs"]
