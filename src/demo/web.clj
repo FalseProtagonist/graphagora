@@ -4,6 +4,7 @@
             [immutant.web.middleware      :as mw]
             [demo.web.sse                 :as sse]
             [demo.web.http-kit-comparison :as hk]
+            [demo.brepl :refer (browser-repl conn)]
             [compojure.route              :as route]
             [compojure.core     :refer (ANY GET defroutes)]
             [ring.util.response :refer (response redirect content-type)]
@@ -43,7 +44,8 @@
 (defroutes routes
  ; (GET "/" {c :context} (redirect (str c "/index.html")))
   (GET "/counter"  [] counter)
-  (GET "/" {c :context} (redirect (str c "/index.html")))
+;  (GET "/" {c :context} (redirect (str c "/index.html")))
+(GET "/" {c :context} (redirect (str c "/hello.html")))
   (GET "/reverser" [] reverser)
   (GET "/sse"      [] sse/countdown)
   (GET "/http-kit" [] hk/async-handler)
@@ -62,7 +64,7 @@
 
 
 
-(def defaults ["host" "0.0.0.0" "port" 8080])
+(def defaults ["host" "0.0.0.0" "port" 10555])
 
 
 (defn reload-main [& {:as args}]
@@ -70,8 +72,7 @@
     (-> routes
       (immutant.web.middleware/wrap-session
         {:timeout 20})
-      (immutant.web.middleware/wrap-websocket
-        {:on-open (fn [ch] (println "You opened a websocket!"))})
+;      (immutant.web.middleware/wrap-websocket {:on-open (fn [ch] (println "You opened a websocket!"))})
       reload/wrap-reload)
     (merge {"host" (env :demo-web-host), "port" (env :demo-web-port)}
       args)))

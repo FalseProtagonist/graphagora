@@ -25,7 +25,8 @@ Vagrant.configure(2) do |config|
    config.vm.network "forwarded_port", guest: 8080, host: 1234
   config.vm.network "forwarded_port", guest: 52550, host: 2345
   config.vm.network "forwarded_port", guest: 4243, host: 4243
- 
+   config.vm.network "forwarded_port", guest: 10555, host: 10555
+   config.vm.network "forwarded_port", guest: 9001, host: 9001
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
 #   config.vm.network "private_network", ip: "192.168.33.10"
@@ -42,6 +43,8 @@ Vagrant.configure(2) do |config|
 config.vm.synced_folder "/home/zimablue/projects/graphagora", "/home/vagrant/graphagora"
 
 config.vm.synced_folder "/home/zimablue/projects/cljs-kickoff", "/home/vagrant/cljs-kickoff"
+
+config.vm.synced_folder "/home/zimablue/projects/chestnut", "/home/vagrant/chestnut"
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
