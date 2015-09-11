@@ -1,0 +1,15 @@
+set up figwheel
+set up datomic
+data ferrying: how!? websockets? that specialist clojure thing?
+
+fix external website ->is there a better fucking way to do this!?
+->host openshift locally? -> fucking heroku?
+
+=>reclone website and then force it to revert, compare project.cljs
+
+
+game of life
+parse excel/pwningdatagrid
+argument graph
+general website: clustergraph
+
