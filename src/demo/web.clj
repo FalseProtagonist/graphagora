@@ -4,7 +4,7 @@
             [immutant.web.middleware      :as mw]
             [demo.web.sse                 :as sse]
             [demo.web.http-kit-comparison :as hk]
- ;           [demo.brepl :refer (browser-repl conn)]
+            [demo.brepl :refer (browser-repl conn)]
             [compojure.route              :as route]
             [compojure.core     :refer (ANY GET defroutes)]
             [ring.util.response :refer (response redirect content-type)]

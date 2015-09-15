@@ -24,14 +24,19 @@
                  [environ "1.0.0"]
                  [org.clojure/java.jdbc "0.3.6"]
                  [com.h2database/h2 "1.3.176"]
+                 
                  [com.cemerick/piggieback "0.1.5"]
-                 [weasel "0.6.0"]]
+                 [weasel "0.6.0"]
+
+                 [figwheel "0.2.5"]
+                 [figwheel-sidecar "0.2.5"]]
   :repositories [["Immutant incremental builds"
                   "http://downloads.immutant.org/incremental/"]]
   :plugins [[lein-immutant "2.0.0"] 
             [lein-cljsbuild "1.0.5"]
             [lein-environ "1.0.0"]
             [cider/cider-nrepl "0.9.1"]
+            [lein-figwheel "0.2.5"]
 ]
   :cljsbuild {:builds
               [{;; CLJS source code path
