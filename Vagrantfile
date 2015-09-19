@@ -50,6 +50,8 @@ config.vm.synced_folder "/home/zimablue/projects/graphagora", "/home/vagrant/gra
 config.vm.synced_folder "/home/zimablue/projects/cljs-kickoff", "/home/vagrant/cljs-kickoff"
 
 config.vm.synced_folder "/home/zimablue/projects/chestnut", "/home/vagrant/chestnut"
+
+config.vm.synced_folder "/home/zimablue/projects/chestnutskin", "/home/vagrant/chestnutskin"
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:

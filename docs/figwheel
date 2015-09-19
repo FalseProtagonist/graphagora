@@ -1,1 +1,10 @@
 what does figwheel do? => test with chestnut
+
+=>strip out functionality:
+        [put in hardcoded script]
+    ->needed to rearrange script order!
+    still not working, 
+    thought reload-ns  might be to blame. Getting ws disconnects. not reaload-ns as chestnut functions without it.
+    is it the specific function?
+doesn't seem so
+    is it having a single ns?

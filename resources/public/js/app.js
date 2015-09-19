@@ -20,4 +20,5 @@ goog.addDependency("../cljs/repl.js", ['cljs.repl'], ['cljs.core']);
 goog.addDependency("../figwheel/client/socket.js", ['figwheel.client.socket'], ['cljs.core', 'figwheel.client.utils', 'cljs.reader']);
 goog.addDependency("../figwheel/client/heads_up.js", ['figwheel.client.heads_up'], ['cljs.core', 'cljs.core.async', 'figwheel.client.socket', 'clojure.string']);
 goog.addDependency("../figwheel/client.js", ['figwheel.client'], ['goog.Uri', 'cljs.core', 'cljs.core.async', 'figwheel.client.file_reloading', 'figwheel.client.utils', 'cljs.repl', 'figwheel.client.heads_up', 'figwheel.client.socket', 'clojure.string']);
-goog.addDependency("../demo/app.js", ['demo.app'], ['weasel.repl', 'cljs.core', 'figwheel.client']);
+goog.addDependency("../demo/core.js", ['demo.core'], ['cljs.core']);
+goog.addDependency("../demo/app.js", ['demo.app'], ['weasel.repl', 'cljs.core', 'figwheel.client', 'demo.core']);

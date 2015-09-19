@@ -4,13 +4,14 @@
             [immutant.web.middleware      :as mw]
             [demo.web.sse                 :as sse]
             [demo.web.http-kit-comparison :as hk]
-        ;    [demo.brepl :refer (browser-repl conn start-figwheel)]
+;            [demo.brepl :refer (browser-repl conn start-figwheel)]
             [compojure.route              :as route]
             [compojure.core     :refer (ANY GET defroutes)]
             [ring.util.response :refer (response redirect content-type)]
             [clojure.pprint     :refer (pprint)]
             [environ.core       :refer (env)]
             [ring.middleware.reload :as reload]
+            [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [net.cgrand.reload :refer [auto-reload]]))
 
 (defn echo
@@ -62,7 +63,9 @@
     (merge {"host" (env :demo-web-host), "port" (env :demo-web-port)}
       args)))
 
-
+ (def http-handler
+   (reload/wrap-reload (wrap-defaults #'routes api-defaults))
+  )
 
 (def defaults ["host" "0.0.0.0" "port" 10555])
 

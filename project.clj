@@ -16,6 +16,7 @@
                  [org.immutant/immutant "2.0.2"]
                  [enlive "1.1.5"]
                  [compojure "1.3.4"]
+                 [ring "1.3.2"]
                  [ring/ring-devel "1.3.1"]
                  [ring/ring-defaults "0.1.3"]
                  [org.clojure/core.memoize "0.5.6"]
@@ -39,6 +40,10 @@
             [cider/cider-nrepl "0.9.1"]
             [lein-figwheel "0.2.5"]
 ]
+                   :figwheel {:http-server-root "public"
+                              :server-port 3449
+                              :css-dirs ["resources/public/css"]
+                              :ring-handler demo.web/http-handler}
   :cljsbuild {:builds
               [{;; CLJS source code path
                 :source-paths ["src/cljs"]
@@ -48,7 +53,7 @@
                            :output-to "resources/public/js/app.js"
 
                            ;; minimal JS optimization directive
-                           :optimizations :whitespace
+                           :optimizations :none
 
                            ;; generated JS code prettyfication
                            :pretty-print true
