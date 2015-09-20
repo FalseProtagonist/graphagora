@@ -1,16 +1,21 @@
-(ns demo.core)
+(ns demo.core
+  (:require [demo.graphag :as graphag]))
 
 
 
-(def clear-command (fn [] (-> 
-                                  js/d3 
-                                  (.selectAll "p") 
+(def clear-command (fn [] (do (-> 
+                               js/d3 
+                               (.selectAll "p") 
                                         ;(.selectAll "*") 
-                                  .remove)))
+                               .remove)
+                              (->
+                               js/d3
+                               (.selectAll "svg")
+                               .remove))))
 
-(defn add-element []     (-> js/d3 (.select "div") #_(.selectAll "p") 
+#_(defn add-element []     (-> js/d3 (.select "div") #_(.selectAll "p") 
         (.data (clj->js ["this is" "d3" "ANYTHING" "at all"])) .enter 
-        (.append "p") (.text "data")))
+        (.append "p") (.text "dataa2")))
 
 
 (defn main [] 
@@ -21,5 +26,6 @@
     (clear-command)
 ;    (.write js/document "Hello, ClojureScript fig")
   ;  (js/alert "hello, world!")
-    (add-element)
-    (js/alert "alive")))
+    #_(add-element)
+    (graphag/force-layout)
+    #_(js/alert "alive?")))
