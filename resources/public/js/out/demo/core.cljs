@@ -1,5 +1,5 @@
 (ns demo.core
-  (:require [demo.graphag :as graphag]))
+  (:require [demo.graph :as graph]))
 
 
 
@@ -27,5 +27,5 @@
 ;    (.write js/document "Hello, ClojureScript fig")
   ;  (js/alert "hello, world!")
     #_(add-element)
-    (graphag/force-layout)
+    (graph/force-layout)
     #_(js/alert "alive?")))
