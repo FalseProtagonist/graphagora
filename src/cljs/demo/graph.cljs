@@ -1,4 +1,4 @@
-(ns demo.graphy
+(ns demo.graph
 
 
 #_(:require    [om.core :as om :include-macros true]
