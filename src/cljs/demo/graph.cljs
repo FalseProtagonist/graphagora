@@ -29,7 +29,7 @@
         links (getrandomlinks 40)
         animationstep 400
         counter (atom 10)
-        colourmap {0 "green" 1 "red" 2 "blue"}
+        colourmap {0 "green" 1 "red" 2 "black"}
         svg (-> js/d3 
                 (.select "div")
                 (.append "svg")
