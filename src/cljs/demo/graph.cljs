@@ -1,15 +1,20 @@
-(ns demo.graph)
+(ns demo.graph
+
+
+#_(:require    [om.core :as om :include-macros true]
+                                        ;  [om.dom :as dom :include-macros true]
+))
 
 (defn getrandomnodes [n width height]
   (clj->js (take n (repeatedly #(clj->js {
                                           :x (rand width) 
                                           :y (rand height) 
-                                          :graph (rand-int 5)})))))
-(defn dummy [] (js/alert "don't call"))
+                                          :graph (rand-int 3)})))))
+#_(defn dummy [] (js/alert "don't call"))
 (defn getrandomlinks [n]
   (clj->js (for [source (range n) 
                  target (range n)
-                 :when (= 0 (rand-int 20))]
+                 :when (= 0 (rand-int 8))]
              (clj->js {:source source :target target}))))
 
 (def clear-command (fn [] (-> 
@@ -24,7 +29,7 @@
         links (getrandomlinks 30)
         animationstep 400
         counter (atom 10)
-        colourmap {0 "green" 1 "red"}
+        colourmap {0 "green" 1 "red" 2 "blue"}
         svg (-> js/d3 
                 (.select "div")
                 (.append "svg")
@@ -58,7 +63,9 @@
                                "fill" 
                                #(get 
                                  colourmap 
-                                 (if (= 0 (.-graph %)) 0 1)))))
+                                 ;(if (= 0 (.-graph %)) 0 1)
+                                 (.-graph %)
+                                 ))))
         updatelink  (fn [] (-> link
                                (.attr "x1" #(-> % .-source .-x))
                                (.attr "y1" #(-> % .-source .-y))
@@ -77,10 +84,14 @@
                (.nodes nodes)
                (.links links)
                (.linkDistance (/ width 5))
-               (.charge (fn [n] (get {0 1000 1 -1000} (.-graph n))))
+               (.charge (fn [n] (get {0 500 1 -500 2 0} (.-graph n))))
                (.on "end"
                     
                     #(do (clear-command) (force-layout))
                     )
                (.on "tick" updateall )
                .start)]))
+
+
+
+

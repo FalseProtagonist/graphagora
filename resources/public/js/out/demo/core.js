@@ -2,15 +2,16 @@
 goog.provide('demo.core');
 goog.require('cljs.core');
 goog.require('demo.graph');
-demo.core.clear_command = (function demo$core$clear_command(){
-d3.selectAll("p").remove();
-
-return d3.selectAll("svg").remove();
-});
+if(typeof demo.core.app_state !== 'undefined'){
+} else {
+demo.core.app_state = cljs.core.atom.call(null,new cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null,"text","text",-1790561697),"yo",cljs.core.list,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Lion","Zebra","Buffalo","Antelope"], null)], true, false));
+}
 demo.core.main = (function demo$core$main(){
-demo.core.clear_command.call(null);
+demo.graph.clear_command.call(null);
 
-return demo.graph.force_layout.call(null);
+demo.graph.force_layout.call(null);
+
+return alert("alive3?");
 });
 
 //# sourceMappingURL=core.js.map

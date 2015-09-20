@@ -1,0 +1,2 @@
+;; Analyzed by ClojureScript 0.0-3058
+{:defs {clear-command {:protocol-inline nil, :meta {:file "/home/vagrant/graphagora/src/cljs/demo/scrap.cljs", :line 5, :column 6, :end-line 5, :end-column 19}, :name /clear-command, :variadic false, :file "src/cljs/demo/scrap.cljs", :end-column 19, :method-params ([]), :protocol-impl nil, :arglists-meta (), :column 1, :methods ({:max-fixed-arity 0, :variadic false, :tag any}), :line 5, :end-line 5, :max-fixed-arity 0, :fn-var true, :arglists nil, :test true}}}

@@ -1,4 +1,4 @@
-set up figwheel
+set up figwheel DONE
 set up datomic
 data ferrying: how!? websockets? that specialist clojure thing?
 
@@ -8,6 +8,7 @@ better web support->host openshift locally? -> fucking heroku?
 =>reclone website and then force it to revert, compare project.cljs
 
 
+set up OM/channels/hiccup
 game of life
 parse excel/pwningdatagrid
 argument graph

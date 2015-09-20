@@ -1,31 +1,25 @@
 (ns demo.core
-  (:require [demo.graph :as graph]))
+  (:require [demo.graph :as graph]
+;           [om.core :as om :include-macros true]
+ ;           [om.dom :as dom :include-macros true]
+            ))
 
-
-
-(def clear-command (fn [] (do (-> 
-                               js/d3 
-                               (.selectAll "p") 
-                                        ;(.selectAll "*") 
-                               .remove)
-                              (->
-                               js/d3
-                               (.selectAll "svg")
-                               .remove))))
-
-#_(defn add-element []     (-> js/d3 (.select "div") #_(.selectAll "p") 
-        (.data (clj->js ["this is" "d3" "ANYTHING" "at all"])) .enter 
-        (.append "p") (.text "dataa2")))
-
+(defonce app-state (atom {:text "yo"
+                          list ["Lion" "Zebra" "Buffalo" "Antelope"]}))
 
 (defn main [] 
   (do
-    #_(weasel/connect 
-     "ws://localhost:9001" 
-     :verbose true :print #{:repl :console})
-    (clear-command)
-;    (.write js/document "Hello, ClojureScript fig")
-  ;  (js/alert "hello, world!")
+    (graph/clear-command)
     #_(add-element)
     (graph/force-layout)
-    #_(js/alert "alive?")))
+    #_(om/root
+     (fn [data owner]
+       (reify
+         om/IRender
+         (render [_]
+           (dom/p nil (:text data)))))
+     app-state
+     {:target (. js/document (getElementById "app"))})
+
+
+    (js/alert "alive3?")))

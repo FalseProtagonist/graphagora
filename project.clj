@@ -29,8 +29,10 @@
                  [com.cemerick/piggieback "0.1.5"]
                  [weasel "0.6.0"]
 
-                [figwheel "0.2.5"]
-                [figwheel-sidecar "0.2.5"]
+                 [om "0.8.0-rc1"]
+                 
+                 [figwheel "0.2.5"]
+                 [figwheel-sidecar "0.2.5"]
 ]
   :repositories [["Immutant incremental builds"
                   "http://downloads.immutant.org/incremental/"]]
