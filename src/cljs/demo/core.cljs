@@ -22,4 +22,4 @@
      {:target (. js/document (getElementById "app"))})
 
 
-    (js/alert "alive3?")))
+#_(js/alert "alive3?")))

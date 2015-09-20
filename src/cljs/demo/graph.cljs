@@ -1,4 +1,4 @@
-(ns demo.graph
+(ns demo.graphy
 
 
 #_(:require    [om.core :as om :include-macros true]
@@ -14,7 +14,7 @@
 (defn getrandomlinks [n]
   (clj->js (for [source (range n) 
                  target (range n)
-                 :when (= 0 (rand-int 8))]
+                 :when (= 0 (rand-int 15))]
              (clj->js {:source source :target target}))))
 
 (def clear-command (fn [] (-> 
@@ -25,8 +25,8 @@
 
 (defn force-layout []
   (let [width 1000 height 1000
-        nodes (getrandomnodes 30 1000 1000)
-        links (getrandomlinks 30)
+        nodes (getrandomnodes 40 1000 1000)
+        links (getrandomlinks 40)
         animationstep 400
         counter (atom 10)
         colourmap {0 "green" 1 "red" 2 "blue"}
