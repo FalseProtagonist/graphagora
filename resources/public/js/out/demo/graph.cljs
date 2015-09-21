@@ -9,12 +9,12 @@
   (clj->js (take n (repeatedly #(clj->js {
                                           :x (rand width) 
                                           :y (rand height) 
-                                          :graph (rand-int 3)})))))
+                                          :graph (rand-int 5)})))))
 #_(defn dummy [] (js/alert "don't call"))
 (defn getrandomlinks [n]
   (clj->js (for [source (range n) 
                  target (range n)
-                 :when (= 0 (rand-int 8))]
+                 :when (= 0 (rand-int 10))]
              (clj->js {:source source :target target}))))
 
 (def clear-command (fn [] (-> 
@@ -25,11 +25,11 @@
 
 (defn force-layout []
   (let [width 1000 height 1000
-        nodes (getrandomnodes 30 1000 1000)
-        links (getrandomlinks 30)
+        nodes (getrandomnodes 20 1000 1000)
+        links (getrandomlinks 20)
         animationstep 400
         counter (atom 10)
-        colourmap {0 "green" 1 "red" 2 "blue"}
+        colourmap {0 "green" 1 "red" 2 "blue" 3 "blue" 4 "blue"}
         svg (-> js/d3 
                 (.select "div")
                 (.append "svg")
@@ -84,7 +84,7 @@
                (.nodes nodes)
                (.links links)
                (.linkDistance (/ width 5))
-               (.charge (fn [n] (get {0 500 1 -500} (.-graph n))))
+               (.charge (fn [n] (get {0 500 1 -500 2 0 3 0 4 0} (.-graph n))))
                (.on "end"
                     
                     #(do (clear-command) (force-layout))

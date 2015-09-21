@@ -4,7 +4,7 @@
  ;           [om.dom :as dom :include-macros true]
             ))
 
-(defonce app-state (atom {:text "yo"
+#_(defonce app-state (atom {:text "yo"
                           list ["Lion" "Zebra" "Buffalo" "Antelope"]}))
 
 (defn main [] 
@@ -22,4 +22,4 @@
      {:target (. js/document (getElementById "app"))})
 
 
-    (js/alert "alive3?")))
+#_(js/alert "why alert?")))
