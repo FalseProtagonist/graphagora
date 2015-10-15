@@ -11,6 +11,7 @@
                                           :y (rand height) 
                                           :graph (rand-int 5)})))))
 #_(defn dummy [] (js/alert "don't call"))
+
 (defn getrandomlinks [n]
   (clj->js (for [source (range n) 
                  target (range n)
@@ -22,6 +23,8 @@
                                   (.select "svg") 
                                         ;(.selectAll "*") 
                                   .remove)))
+
+
 
 (defn force-layout []
   (let [width 1000 height 1000
@@ -55,7 +58,9 @@
               (.append "circle")
               (.attr "r" (/ width 100))
               (.attr "cx" #(.-x %))
-              (.attr "cy" #(.-y %)))
+              (.attr "cy" #(.-y %))
+              (.on "click" #(js/alert "clicked"))
+)
         updatenode (fn [] (-> node 
                               (.attr "cx" #(.-x %))
                               (.attr "cy" #(.-y %))
@@ -86,7 +91,6 @@
                (.linkDistance (/ width 5))
                (.charge (fn [n] (get {0 500 1 -500 2 0 3 0 4 0} (.-graph n))))
                (.on "end"
-                    
                     #(do (clear-command) (force-layout))
                     )
                (.on "tick" updateall )

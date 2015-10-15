@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 0.0-3058 {}
+// Compiled by ClojureScript 1.7.145 {}
 goog.provide('demo.graph');
 goog.require('cljs.core');
 demo.graph.getrandomnodes = (function demo$graph$getrandomnodes(n,width,height){
@@ -7,40 +7,40 @@ return cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 3, 
 }))));
 });
 demo.graph.getrandomlinks = (function demo$graph$getrandomlinks(n){
-return cljs.core.clj__GT_js.call(null,(function (){var iter__28914__auto__ = (function demo$graph$getrandomlinks_$_iter__34443(s__34444){
+return cljs.core.clj__GT_js.call(null,(function (){var iter__29678__auto__ = (function demo$graph$getrandomlinks_$_iter__30288(s__30289){
 return (new cljs.core.LazySeq(null,(function (){
-var s__34444__$1 = s__34444;
+var s__30289__$1 = s__30289;
 while(true){
-var temp__4425__auto__ = cljs.core.seq.call(null,s__34444__$1);
+var temp__4425__auto__ = cljs.core.seq.call(null,s__30289__$1);
 if(temp__4425__auto__){
 var xs__4977__auto__ = temp__4425__auto__;
 var source = cljs.core.first.call(null,xs__4977__auto__);
-var iterys__28910__auto__ = ((function (s__34444__$1,source,xs__4977__auto__,temp__4425__auto__){
-return (function demo$graph$getrandomlinks_$_iter__34443_$_iter__34445(s__34446){
-return (new cljs.core.LazySeq(null,((function (s__34444__$1,source,xs__4977__auto__,temp__4425__auto__){
+var iterys__29674__auto__ = ((function (s__30289__$1,source,xs__4977__auto__,temp__4425__auto__){
+return (function demo$graph$getrandomlinks_$_iter__30288_$_iter__30290(s__30291){
+return (new cljs.core.LazySeq(null,((function (s__30289__$1,source,xs__4977__auto__,temp__4425__auto__){
 return (function (){
-var s__34446__$1 = s__34446;
+var s__30291__$1 = s__30291;
 while(true){
-var temp__4425__auto____$1 = cljs.core.seq.call(null,s__34446__$1);
+var temp__4425__auto____$1 = cljs.core.seq.call(null,s__30291__$1);
 if(temp__4425__auto____$1){
-var s__34446__$2 = temp__4425__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34446__$2)){
-var c__28912__auto__ = cljs.core.chunk_first.call(null,s__34446__$2);
-var size__28913__auto__ = cljs.core.count.call(null,c__28912__auto__);
-var b__34448 = cljs.core.chunk_buffer.call(null,size__28913__auto__);
-if((function (){var i__34447 = (0);
+var s__30291__$2 = temp__4425__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__30291__$2)){
+var c__29676__auto__ = cljs.core.chunk_first.call(null,s__30291__$2);
+var size__29677__auto__ = cljs.core.count.call(null,c__29676__auto__);
+var b__30293 = cljs.core.chunk_buffer.call(null,size__29677__auto__);
+if((function (){var i__30292 = (0);
 while(true){
-if((i__34447 < size__28913__auto__)){
-var target = cljs.core._nth.call(null,c__28912__auto__,i__34447);
+if((i__30292 < size__29677__auto__)){
+var target = cljs.core._nth.call(null,c__29676__auto__,i__30292);
 if(cljs.core._EQ_.call(null,(0),cljs.core.rand_int.call(null,(10)))){
-cljs.core.chunk_append.call(null,b__34448,cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"source","source",-433931539),source,new cljs.core.Keyword(null,"target","target",253001721),target], null)));
+cljs.core.chunk_append.call(null,b__30293,cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"source","source",-433931539),source,new cljs.core.Keyword(null,"target","target",253001721),target], null)));
 
-var G__34449 = (i__34447 + (1));
-i__34447 = G__34449;
+var G__30294 = (i__30292 + (1));
+i__30292 = G__30294;
 continue;
 } else {
-var G__34450 = (i__34447 + (1));
-i__34447 = G__34450;
+var G__30295 = (i__30292 + (1));
+i__30292 = G__30295;
 continue;
 }
 } else {
@@ -49,17 +49,17 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34448),demo$graph$getrandomlinks_$_iter__34443_$_iter__34445.call(null,cljs.core.chunk_rest.call(null,s__34446__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__30293),demo$graph$getrandomlinks_$_iter__30288_$_iter__30290.call(null,cljs.core.chunk_rest.call(null,s__30291__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34448),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__30293),null);
 }
 } else {
-var target = cljs.core.first.call(null,s__34446__$2);
+var target = cljs.core.first.call(null,s__30291__$2);
 if(cljs.core._EQ_.call(null,(0),cljs.core.rand_int.call(null,(10)))){
-return cljs.core.cons.call(null,cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"source","source",-433931539),source,new cljs.core.Keyword(null,"target","target",253001721),target], null)),demo$graph$getrandomlinks_$_iter__34443_$_iter__34445.call(null,cljs.core.rest.call(null,s__34446__$2)));
+return cljs.core.cons.call(null,cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"source","source",-433931539),source,new cljs.core.Keyword(null,"target","target",253001721),target], null)),demo$graph$getrandomlinks_$_iter__30288_$_iter__30290.call(null,cljs.core.rest.call(null,s__30291__$2)));
 } else {
-var G__34451 = cljs.core.rest.call(null,s__34446__$2);
-s__34446__$1 = G__34451;
+var G__30296 = cljs.core.rest.call(null,s__30291__$2);
+s__30291__$1 = G__30296;
 continue;
 }
 }
@@ -68,16 +68,16 @@ return null;
 }
 break;
 }
-});})(s__34444__$1,source,xs__4977__auto__,temp__4425__auto__))
+});})(s__30289__$1,source,xs__4977__auto__,temp__4425__auto__))
 ,null,null));
-});})(s__34444__$1,source,xs__4977__auto__,temp__4425__auto__))
+});})(s__30289__$1,source,xs__4977__auto__,temp__4425__auto__))
 ;
-var fs__28911__auto__ = cljs.core.seq.call(null,iterys__28910__auto__.call(null,cljs.core.range.call(null,n)));
-if(fs__28911__auto__){
-return cljs.core.concat.call(null,fs__28911__auto__,demo$graph$getrandomlinks_$_iter__34443.call(null,cljs.core.rest.call(null,s__34444__$1)));
+var fs__29675__auto__ = cljs.core.seq.call(null,iterys__29674__auto__.call(null,cljs.core.range.call(null,n)));
+if(fs__29675__auto__){
+return cljs.core.concat.call(null,fs__29675__auto__,demo$graph$getrandomlinks_$_iter__30288.call(null,cljs.core.rest.call(null,s__30289__$1)));
 } else {
-var G__34452 = cljs.core.rest.call(null,s__34444__$1);
-s__34444__$1 = G__34452;
+var G__30297 = cljs.core.rest.call(null,s__30289__$1);
+s__30289__$1 = G__30297;
 continue;
 }
 } else {
@@ -87,7 +87,7 @@ break;
 }
 }),null,null));
 });
-return iter__28914__auto__.call(null,cljs.core.range.call(null,n));
+return iter__29678__auto__.call(null,cljs.core.range.call(null,n));
 })());
 });
 demo.graph.clear_command = (function demo$graph$clear_command(){
@@ -103,44 +103,48 @@ var counter = cljs.core.atom.call(null,(10));
 var colourmap = new cljs.core.PersistentArrayMap(null, 5, [(0),"green",(1),"red",(2),"blue",(3),"blue",(4),"blue"], null);
 var svg = d3.select("div").append("svg").attr("width",width).attr("height",height);
 var link = svg.selectAll("line").data(links).enter().append("line").attr("x1",((function (width,height,nodes,links,animationstep,counter,colourmap,svg){
-return (function (p1__34453_SHARP_){
-return cljs.core.get.call(null,nodes,p1__34453_SHARP_.source).x;
+return (function (p1__30298_SHARP_){
+return cljs.core.get.call(null,nodes,p1__30298_SHARP_.source).x;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg))
 ).attr("x2",((function (width,height,nodes,links,animationstep,counter,colourmap,svg){
-return (function (p1__34454_SHARP_){
-return cljs.core.get.call(null,nodes,p1__34454_SHARP_.target).x;
+return (function (p1__30299_SHARP_){
+return cljs.core.get.call(null,nodes,p1__30299_SHARP_.target).x;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg))
 ).attr("y1",((function (width,height,nodes,links,animationstep,counter,colourmap,svg){
-return (function (p1__34455_SHARP_){
-return cljs.core.get.call(null,nodes,p1__34455_SHARP_.source).y;
+return (function (p1__30300_SHARP_){
+return cljs.core.get.call(null,nodes,p1__30300_SHARP_.source).y;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg))
 ).attr("y2",((function (width,height,nodes,links,animationstep,counter,colourmap,svg){
-return (function (p1__34456_SHARP_){
-return cljs.core.get.call(null,nodes,p1__34456_SHARP_.target).y;
+return (function (p1__30301_SHARP_){
+return cljs.core.get.call(null,nodes,p1__30301_SHARP_.target).y;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg))
 ).attr("stroke-width",(1)).attr("stroke","red");
 var node = svg.selectAll("circle").data(nodes).enter().append("circle").attr("r",(width / (100))).attr("cx",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link){
-return (function (p1__34457_SHARP_){
-return p1__34457_SHARP_.x;
+return (function (p1__30302_SHARP_){
+return p1__30302_SHARP_.x;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link))
 ).attr("cy",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link){
-return (function (p1__34458_SHARP_){
-return p1__34458_SHARP_.y;
+return (function (p1__30303_SHARP_){
+return p1__30303_SHARP_.y;
+});})(width,height,nodes,links,animationstep,counter,colourmap,svg,link))
+).on("click",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link){
+return (function (){
+return alert("clicked");
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link))
 );
 var updatenode = ((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node){
 return (function (){
 return node.attr("cx",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node){
-return (function (p1__34459_SHARP_){
-return p1__34459_SHARP_.x;
+return (function (p1__30304_SHARP_){
+return p1__30304_SHARP_.x;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node))
 ).attr("cy",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node){
-return (function (p1__34460_SHARP_){
-return p1__34460_SHARP_.y;
+return (function (p1__30305_SHARP_){
+return p1__30305_SHARP_.y;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node))
 ).attr("fill",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node){
-return (function (p1__34461_SHARP_){
-return cljs.core.get.call(null,colourmap,p1__34461_SHARP_.graph);
+return (function (p1__30306_SHARP_){
+return cljs.core.get.call(null,colourmap,p1__30306_SHARP_.graph);
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node))
 );
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node))
@@ -148,20 +152,20 @@ return cljs.core.get.call(null,colourmap,p1__34461_SHARP_.graph);
 var updatelink = ((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode){
 return (function (){
 return link.attr("x1",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode){
-return (function (p1__34462_SHARP_){
-return p1__34462_SHARP_.source.x;
+return (function (p1__30307_SHARP_){
+return p1__30307_SHARP_.source.x;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode))
 ).attr("y1",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode){
-return (function (p1__34463_SHARP_){
-return p1__34463_SHARP_.source.y;
+return (function (p1__30308_SHARP_){
+return p1__30308_SHARP_.source.y;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode))
 ).attr("x2",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode){
-return (function (p1__34464_SHARP_){
-return p1__34464_SHARP_.target.x;
+return (function (p1__30309_SHARP_){
+return p1__30309_SHARP_.target.x;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode))
 ).attr("y2",((function (width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode){
-return (function (p1__34465_SHARP_){
-return p1__34465_SHARP_.target.y;
+return (function (p1__30310_SHARP_){
+return p1__30310_SHARP_.target.y;
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode))
 );
 });})(width,height,nodes,links,animationstep,counter,colourmap,svg,link,node,updatenode))

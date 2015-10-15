@@ -1,2 +1,2 @@
-;; Analyzed by ClojureScript 0.0-3058
+;; Analyzed by ClojureScript 1.7.145
 {:name demo.scrap, :doc nil, :excludes #{}, :use-macros nil, :require-macros nil, :uses nil, :requires nil, :imports nil}

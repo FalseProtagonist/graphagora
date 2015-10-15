@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 0.0-3058 {}
+// Compiled by ClojureScript 1.7.145 {}
 goog.provide('demo.scrap');
 goog.require('cljs.core');
 

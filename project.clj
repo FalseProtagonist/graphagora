@@ -12,7 +12,8 @@
                  }
   :dependencies [[org.clojure/clojure "1.7.0"]
 ;                 [org.clojure/clojurescript "0.0-2069"]
-                 [org.clojure/clojurescript "0.0-3058" :scope "provided"]
+;                 [org.clojure/clojurescript "0.0-3058" :scope "provided"]
+[org.clojure/clojurescript "1.7.145" :scope "provided"]
                  [org.immutant/immutant "2.0.2"]
                  [enlive "1.1.5"]
                  [compojure "1.3.4"]
@@ -31,6 +32,10 @@
 
                  [om "0.8.0-rc1"]
                  
+                 [reagent "0.5.1"]
+                 [reagent-forms "0.5.11"]
+                 [reagent-utils "0.1.5"]
+
                  [figwheel "0.2.5"]
                  [figwheel-sidecar "0.2.5"]
 ]
@@ -62,7 +67,7 @@
                            :libs ["resources/libs/d3.v3.min.js"]}}]}
 ;  :main demo.web
   :main demo.core  
- ; :main demo.madeup
+ ; :main demo.mad#eup
   :uberjar-name "demo-standalone.jar"
   :min-lein-version "2.4.0"
   :jvm-opts ["-Dhornetq.data.dir=target/hornetq-data"
