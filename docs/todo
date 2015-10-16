@@ -1,6 +1,7 @@
 set up figwheel DONE
-set up datomic
 data ferrying: how!? websockets? that specialist clojure thing?
+set up datomic
+
 
 select browser repl better
 better web support->host openshift locally? -> fucking heroku?
@@ -10,7 +11,7 @@ better web support->host openshift locally? -> fucking heroku?
 
 set up OM/channels/hiccup
 game of life
-parse excel/pwningdatagrid
+parse excel/pwningdatagrid->category theory
 argument graph
 general website: clustergraph
 
