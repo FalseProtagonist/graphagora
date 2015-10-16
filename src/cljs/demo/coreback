@@ -1,0 +1,14 @@
+
+
+
+
+
+
+#_(defn home-component []
+  (r/create-class {:reagent-render life-component
+                   :component-did-mount ;home-did-mount
+                   life-component
+                   }))
+
+
+
