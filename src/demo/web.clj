@@ -4,7 +4,7 @@
             [immutant.web.middleware      :as mw]
             [demo.web.sse                 :as sse]
             [demo.web.http-kit-comparison :as hk]
-            [demo.brepl :refer (browser-repl conn start-figwheel)]
+;            [demo.brepl :refer (browser-repl conn start-figwheel)]
             [compojure.route              :as route]
             [compojure.core     :refer (ANY GET defroutes)]
             [ring.util.response :refer (response redirect content-type)]
@@ -82,5 +82,5 @@
       args)))
 
 (defn -main [& {:as args}] 
-  (do (start-figwheel) (apply reload-main defaults)))
+  (do #_(start-figwheel) (apply reload-main defaults)))
 
