@@ -1,9 +1,9 @@
 (ns demo.life-logic)
 
 (def states #{:live :dead})
-(def color-map {:live "green" :dead "red"})
 
-(def hello "world")
+(defn alive [num-neighbours current-state]
+  (get  {3 :live 4 current-state} num-neighbours :dead))
 
 (def select-values (comp vals select-keys))
 
@@ -20,27 +20,13 @@
      :width (* r nx 2) 
      :height (* r ny 2)}))
 
-(defn alive [num-neighbours current-state]
-  (get  {3 :live 4 current-state} num-neighbours :dead))
+(defn update-color [circles color-map]
+  (map 
+   #(assoc % :color ((:alive %) color-map))  
+   circles))
 
-
-(defn swap-color [circle-data]
-  (let [colors {"green" "red" "red" "green"}
-        current-color (:color (first (:circles circle-data)))]
-    (assoc 
-     circle-data 
-     :circles 
-     (map 
-       (fn [circle] (assoc circle :color (colors current-color) ))
-       (:circles circle-data) 
-       ))))
-
-
-(defn update-color [circles]
-  (map #(assoc % :color ((:alive %) color-map))  circles))
-
-(defn update-color-main [circle-data]
-  (assoc circle-data :circles (update-color (:circles circle-data))))
+(defn update-color-main [circle-data color-map]
+  (assoc circle-data :circles (update-color (:circles circle-data) color-map)))
 
 (defn neighbours [nx ny pos & {:keys [wrap]}]
   (let [x-init (mod pos nx)
@@ -54,25 +40,30 @@
                     (and 
                      (< x-new nx) (< y-new ny) 
                      (<= 0 x-new) (<= 0 y-new)))]
-       (+ (mod x-new nx) (* (mod y-new ny) nx)) 
-       )))
+       (+ (mod x-new nx) (* (mod y-new ny) nx)))))
+
+(defn init-neighbours [nx ny & {:keys [wrap]}]
+  (fn [pos] (neighbours nx ny pos :wrap wrap)))
+
+(defn count-live-neighbours [circles neighbours pos]
+  (count 
+   (filter 
+    #(= :live (:alive %))
+    (select-values (vec circles) (neighbours pos)))
+    ))
+
+(defn iterate-life-main [data nx ny & {:keys [wrap]}]
+  (let [neighbours-fixed (init-neighbours nx ny :wrap wrap)]
+    (assoc 
+        data 
+      :circles 
+      (map-indexed
+       #(assoc
+            %2
+          :alive
+          (alive 
+           (count-live-neighbours (:circles data) neighbours-fixed %1)
+           (:alive %2)))
+       (:circles data)))))
 
 
-(defn get-neighbours [circles nx ny pos]
-  (select-values (vec circles) (neighbours nx ny pos :wrap :true)))
-
-(defn count-live-neighbours [circles nx ny pos]
-  (count (filter #(= :live (:alive %)) (get-neighbours circles nx ny pos))))
-
-
-(defn iterate-life [circles nx ny neighbours]
-  (map-indexed 
-   #(assoc 
-        %2
-      :alive
-      (alive (count-live-neighbours circles nx ny %1) (:alive %2)))
-   circles))
-
-
-(defn iterate-life-fixed [circles] (iterate-life circles 6 6 neighbours))
-(defn iterate-life-main [data] (assoc data :circles (iterate-life-fixed (:circles data))))

@@ -61,8 +61,7 @@
 ;     hello
      life-component
 (.getElementById js/document "app"))
-;(print circle-data)
-  (js/alert "modified")))
+  #_(js/alert "modified")))
 
 
 

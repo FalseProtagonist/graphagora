@@ -43,16 +43,17 @@
 
 
 (defroutes routes
- ; (GET "/" {c :context} (redirect (str c "/index.html")))
   (GET "/counter"  [] counter)
-;  (GET "/" {c :context} (redirect (str c "/index.html")))
-(GET "/" {c :context} (redirect (str c "/hello.html")))
+  (GET "/" {c :context} (redirect (str c "/hello.html")))
   (GET "/reverser" [] reverser)
   (GET "/sse"      [] sse/countdown)
   (GET "/http-kit" [] hk/async-handler)
-;(GET "/graphagora" {c :context} (redirect (str c "/hello.html")))
   (route/resources "/")
-  (ANY "*" [] echo))
+  (ANY "*" [] echo)
+;  (GET "/" {c :context} (redirect (str c "/index.html")))
+;(GET "/graphagora" {c :context} (redirect (str c "/hello.html")))
+ ; (GET "/" {c :context} (redirect (str c "/index.html")))
+)
 
 #_(defn -main [& {:as args}]
   (web/run

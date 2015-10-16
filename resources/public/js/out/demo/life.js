@@ -14,8 +14,8 @@ return demo.life_draw.draw_circles.call(null,demo.life.circle_data);
 });
 demo.life.circle_state = reagent.core.atom.call(null,demo.life.circle_data);
 demo.life.play_life = (function demo$life$play_life(circle_data,n,timeout,nx,ny,neighbours){
-var lives = cljs.core.iterate.call(null,(function (p1__30361_SHARP_){
-return demo.life_logic.update_color.call(null,demo.life_logic.iterate_life.call(null,p1__30361_SHARP_,nx,ny,neighbours));
+var lives = cljs.core.iterate.call(null,(function (p1__45578_SHARP_){
+return demo.life_logic.update_color.call(null,demo.life_logic.iterate_life.call(null,p1__45578_SHARP_,nx,ny,neighbours));
 }),circle_data);
 return demo.life_draw.update_circles.call(null,cljs.core.get.call(null,(1),lives));
 });
@@ -47,9 +47,7 @@ demo.life.hello = (function demo$life$hello(){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),"hello world"], null);
 });
 demo.life.main = (function demo$life$main(){
-reagent.core.render.call(null,demo.life.hello,document.getElementById("app"));
-
-return alert("modified");
+return reagent.core.render.call(null,demo.life.hello,document.getElementById("app"));
 });
 
 //# sourceMappingURL=life.js.map
