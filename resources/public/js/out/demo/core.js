@@ -40,11 +40,7 @@ demo.core.hello = (function demo$core$hello(){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),(cljs.core.truth_(cljs.core.deref.call(null,demo.core.circle_state))?null:null)], null);
 });
 demo.core.home_component = (function demo$core$home_component(){
-return reagent.core.create_class.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"reagent-render","reagent-render",-985383853),demo.core.hello,new cljs.core.Keyword(null,"component-did-mount","component-did-mount",-1126910518),(function (){
-alert("mounted");
-
-return demo.life_draw.draw_svg.call(null,(1000),(1000));
-}),new cljs.core.Keyword(null,"component-did-update","component-did-update",-1468549173),demo.core.life_component], null));
+return reagent.core.create_class.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"reagent-render","reagent-render",-985383853),demo.core.hello,new cljs.core.Keyword(null,"component-did-update","component-did-update",-1468549173),demo.core.life_component], null));
 });
 demo.core.main = (function demo$core$main(){
 return reagent.core.render.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.core.home_component], null),document.getElementById("app"));

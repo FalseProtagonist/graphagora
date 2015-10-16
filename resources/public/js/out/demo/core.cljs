@@ -43,8 +43,9 @@
 
 (defn home-component []
   (r/create-class {:reagent-render hello
-                   :component-did-mount
-                   #(do (js/alert "mounted")
+                  ; :component-did-mount
+                  ;
+                   #_(do (js/alert "mounted")
                         (draw/draw-svg 1000 1000))
                    :component-did-update life-component
                    }))
