@@ -12,10 +12,10 @@ return d3.select("svg").selectAll("circle").data(cljs.core.clj__GT_js.call(null,
 return d_.y;
 })).attr("cx",(function (d_){
 return d_.x;
-})).attr("r",(function (d_){
-return d_.r;
 })).attr("fill",(function (d_){
 return d_.color;
+})).attr("r",(function (d_){
+return d_.r;
 }));
 });
 

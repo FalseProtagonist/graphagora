@@ -10,14 +10,15 @@
     :refer 
     [<! chan put! sliding-buffer sub pub timeout]]))
 
-(def nx 10)
-(def ny 10)
-(def r 50)
-(def color-map {:live "green" :dead "red"})
-
-(def circle-data (logic/get-circle-coordinates 6 6 50 color-map))
+(def nx 30)
+(def ny 30)
+(def r 20)
+(def wrap :true)
+(def color-map {:live "blue" :dead "red"})
+(def size-map {:live r :dead 0})
+(def circle-data (logic/get-circle-coordinates nx ny r color-map))
 (def circle-state (r/atom circle-data))
-(def timeperiod (atom 1000))
+(def timeperiod 500)
 (defonce timer (atom  (js/Date.)))
 (defonce state (r/atom "state"))
 
@@ -25,11 +26,12 @@
                    #(swap! 
                      circle-state 
                      (fn [data] 
-                       (logic/update-color-main 
-                        (logic/iterate-life-main data 6 6 :wrap :true)
-                        color-map)
+                       (logic/update-visuals-main 
+                        (logic/iterate-life-main data nx ny :wrap wrap)
+                        color-map
+                        size-map)
                        )) 
-                   1000))
+                   timeperiod))
 
 (defn life-component []
   (draw/clear-stuff)
@@ -42,10 +44,10 @@
 (defn home-component []
   (r/create-class {:reagent-render hello
                    :component-did-mount
-                   #(js/alert "mounted")
+                   #(do (js/alert "mounted")
+                        (draw/draw-svg 1000 1000))
                    :component-did-update life-component
                    }))
-
 
 (defn main []
 (r/render 

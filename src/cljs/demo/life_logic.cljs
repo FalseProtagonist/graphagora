@@ -1,11 +1,10 @@
-(ns demo.life-logic)
+(ns demo.life-logic
+  (:require [demo.util :as util]))
 
 (def states #{:live :dead})
 
 (defn alive [num-neighbours current-state]
   (get  {3 :live 4 current-state} num-neighbours :dead))
-
-(def select-values (comp vals select-keys))
 
 (defn get-circle-coordinates [nx ny r colormap]
   (let [individual-coords 
@@ -20,13 +19,21 @@
      :width (* r nx 2) 
      :height (* r ny 2)}))
 
-(defn update-color [circles color-map]
-  (map 
-   #(assoc % :color ((:alive %) color-map))  
-   circles))
 
-(defn update-color-main [circle-data color-map]
-  (assoc circle-data :circles (update-color (:circles circle-data) color-map)))
+(defn update-visuals [circles color-map size-map]
+  (map 
+   (fn [circle] 
+     (util/alter-map circle 
+                [[:color #(color-map (:alive %1))]
+                 [:r #(size-map (:alive %1))]]))
+   circles
+   ))
+
+#_(defn update-visuals-main [circle-data color-map]
+  (assoc circle-data :circles ()))
+
+(defn update-visuals-main [circle-data color-map size-map]
+  (update circle-data :circles #(update-visuals % color-map size-map) ))
 
 (defn neighbours [nx ny pos & {:keys [wrap]}]
   (let [x-init (mod pos nx)
@@ -49,7 +56,7 @@
   (count 
    (filter 
     #(= :live (:alive %))
-    (select-values (vec circles) (neighbours pos)))
+    (util/select-values (vec circles) (neighbours pos)))
     ))
 
 (defn iterate-life-main [data nx ny & {:keys [wrap]}]
