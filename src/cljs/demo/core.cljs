@@ -22,7 +22,7 @@
 (defonce timer (atom  (js/Date.)))
 (defonce state (r/atom "state"))
 
-#_(def time-updater (js/setInterval
+(def time-updater (js/setInterval
                    #(swap! 
                      circle-state 
                      (fn [data] 
