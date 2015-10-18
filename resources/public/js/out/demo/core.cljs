@@ -10,9 +10,9 @@
     :refer 
     [<! chan put! sliding-buffer sub pub timeout]]))
 
-(def nx 20)
-(def ny 20)
-(def r 15)
+(def nx 15)
+(def ny 15)
+(def r 20)
 (def wrap :true)
 (def color-map {:live "green" :dead "red"})
 (def size-map {:live r :dead 0})
@@ -26,7 +26,7 @@
 
 (def circle-state (r/atom (get-circle-state)))
 (def timer-state (r/atom nil))
-(def timeperiod 1000)
+(def timeperiod 1650)
 (defonce timer (atom  (js/Date.)))
 (defonce state (r/atom "state"))
 

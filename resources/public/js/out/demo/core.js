@@ -7,9 +7,9 @@ goog.require('om.dom');
 goog.require('reagent.core');
 goog.require('cljs.core.async');
 goog.require('om.core');
-demo.core.nx = (20);
-demo.core.ny = (20);
-demo.core.r = (15);
+demo.core.nx = (15);
+demo.core.ny = (15);
+demo.core.r = (20);
 demo.core.wrap = new cljs.core.Keyword(null,"true","true",-1114210334);
 demo.core.color_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),"green",new cljs.core.Keyword(null,"dead","dead",-1946604091),"red"], null);
 demo.core.size_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),demo.core.r,new cljs.core.Keyword(null,"dead","dead",-1946604091),(0)], null);
@@ -21,7 +21,7 @@ return demo.life_logic.update_visuals_main.call(null,demo.core.rand_circle_data.
 });
 demo.core.circle_state = reagent.core.atom.call(null,demo.core.get_circle_state.call(null));
 demo.core.timer_state = reagent.core.atom.call(null,null);
-demo.core.timeperiod = (1000);
+demo.core.timeperiod = (1650);
 if(typeof demo.core.timer !== 'undefined'){
 } else {
 demo.core.timer = cljs.core.atom.call(null,(new Date()));
