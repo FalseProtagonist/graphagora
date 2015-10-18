@@ -1,17 +1,20 @@
 (ns demo.notes)
 
-(def select-values (comp vals select-keys))
+(defn swap-life [circle-state]
+  (
+   ))
 
-(iterate-life circles 6 6 neighbours)
-
-(swap! circle-state logic/iterate-life-main)
-(reset! circle-state circle-data)
-
-(defn iterate-life [circles nx ny neighbours]
-  (map-indexed 
-   #(assoc 
-        %2
-      :alive
-      (alive (count (count-live-neighbours circles nx ny %1)) (:alive %2)))
-   circles))
-
+(defn draw-circles [info]
+  (-> js/d3 
+      (.select "svg") 
+      (.selectAll "circle")
+      (.data (clj->js (:circles info)))
+      .enter
+      (.append "circle")
+      (.attr "cy" (fn [d-] (.-y d-))) 
+      (.attr "cx" (fn [d-] (.-x d-)))
+      (.attr "fill" (fn [d-] (.-color d-)))
+;      .transition
+;      (.duration 3000)
+;      (.delay 1000)
+      (.attr "r" (fn [d-] (.-r d-)))))

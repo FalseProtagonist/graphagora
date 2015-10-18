@@ -29,9 +29,6 @@
    circles
    ))
 
-#_(defn update-visuals-main [circle-data color-map]
-  (assoc circle-data :circles ()))
-
 (defn update-visuals-main [circle-data color-map size-map]
   (update circle-data :circles #(update-visuals % color-map size-map) ))
 

@@ -10,19 +10,19 @@
     :refer 
     [<! chan put! sliding-buffer sub pub timeout]]))
 
-(def nx 30)
-(def ny 30)
-(def r 20)
+(def nx 10)
+(def ny 10)
+(def r 50)
 (def wrap :true)
-(def color-map {:live "blue" :dead "red"})
+(def color-map {:live "green" :dead "red"})
 (def size-map {:live r :dead 0})
 (def circle-data (logic/get-circle-coordinates nx ny r color-map))
 (def circle-state (r/atom circle-data))
-(def timeperiod 500)
+(def timeperiod 2000)
 (defonce timer (atom  (js/Date.)))
 (defonce state (r/atom "state"))
 
-(def time-updater (js/setInterval
+#_(def time-updater (js/setInterval
                    #(swap! 
                      circle-state 
                      (fn [data] 
