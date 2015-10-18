@@ -1,1 +1,1 @@
-{"version":3,"file":"\/home\/vagrant\/graphagora\/resources\/public\/js\/out\/demo\/app.js","sources":["app.cljs"],"lineCount":13,"mappings":";AAAA;;;;;AAMA,2CAAA,uEAAA,kCAAA,pJAACA,gOAEkB;AAAA,AACE,OAACC;;AAEtB,8BAAA,sBAAA,2DAAA,KAAA,uDAAA,iFAAA,yDAAA,rTAACC;AAED,AAACD","names":["figwheel.client\/watch-and-reload","demo.core\/main","weasel.repl\/connect"]}
+{"version":3,"file":"\/home\/vagrant\/graphagora\/resources\/public\/js\/out\/demo\/app.js","sources":["app.cljs"],"lineCount":9,"mappings":";AAAA;;;;;AAaA,AAACA","names":["demo.core\/main"]}

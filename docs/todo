@@ -9,9 +9,10 @@ better web support->host openshift locally? -> fucking heroku?
 =>reclone website and then force it to revert, compare project.cljs
 
 
-set up OM/channels/hiccup
-game of life
+set up OM/channels/hiccup DONE
+game of life ->transitions, buttons, reset, options?
 parse excel/pwningdatagrid->category theory
 argument graph
 general website: clustergraph
+refactor to channels?
 
