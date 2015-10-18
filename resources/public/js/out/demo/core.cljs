@@ -12,7 +12,7 @@
 
 (def nx 20)
 (def ny 20)
-(def r 30)
+(def r 15)
 (def wrap :true)
 (def color-map {:live "green" :dead "red"})
 (def size-map {:live r :dead 0})

@@ -1,18 +1,22 @@
+DONELIST
 set up figwheel DONE
+set up OM/channels/hiccup DONE
+game of life ->transitions DONE, buttons DONE, reset DONE, options?
+
+TODONEXT
 data ferrying: how!? websockets? that specialist clojure thing?
+multiple pages/lazyload js?
+
 set up datomic
 
+TODOSOON
+refactor to channels?
+environment variables
+better web support->host openshift locally? -> fucking herok?u
 
-select browser repl better
-better web support->host openshift locally? -> fucking heroku?
-
-=>reclone website and then force it to revert, compare project.cljs
-
-
-set up OM/channels/hiccup DONE
-game of life ->transitions, buttons, reset, options?
+TODOBIG
 parse excel/pwningdatagrid->category theory
 argument graph
 general website: clustergraph
-refactor to channels?
+
 

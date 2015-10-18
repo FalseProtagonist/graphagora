@@ -9,7 +9,7 @@ goog.require('cljs.core.async');
 goog.require('om.core');
 demo.core.nx = (20);
 demo.core.ny = (20);
-demo.core.r = (30);
+demo.core.r = (15);
 demo.core.wrap = new cljs.core.Keyword(null,"true","true",-1114210334);
 demo.core.color_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),"green",new cljs.core.Keyword(null,"dead","dead",-1946604091),"red"], null);
 demo.core.size_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),demo.core.r,new cljs.core.Keyword(null,"dead","dead",-1946604091),(0)], null);
