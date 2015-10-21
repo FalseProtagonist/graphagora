@@ -6,7 +6,6 @@ game of life ->transitions DONE, buttons DONE, reset DONE, options?
 TODONEXT
 data ferrying: how!? websockets? that specialist clojure thing?
 multiple pages/lazyload js?
-
 set up datomic
 
 TODOSOON

@@ -37,16 +37,5 @@ demo.life_draw.create_elements.call(null,datajs,transition);
 
 return demo.life_draw.update_elements.call(null,datajs,transition);
 });
-demo.life_draw.draw_circles = (function demo$life_draw$draw_circles(info){
-return d3.select("svg").selectAll("circle").data(cljs.core.clj__GT_js.call(null,new cljs.core.Keyword(null,"circles","circles",-1947060917).cljs$core$IFn$_invoke$arity$1(info))).enter().append("circle").attr("cy",(function (d_){
-return d_.y;
-})).attr("cx",(function (d_){
-return d_.x;
-})).attr("fill",(function (d_){
-return d_.color;
-})).attr("r",(function (d_){
-return d_.r;
-}));
-});
 
 //# sourceMappingURL=life_draw.js.map
