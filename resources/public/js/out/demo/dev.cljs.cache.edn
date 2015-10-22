@@ -1,0 +1,2 @@
+;; Analyzed by ClojureScript 1.7.145
+{:name demo.dev, :doc nil, :excludes #{}, :use-macros nil, :require-macros {figwheel figwheel.client, figwheel.client figwheel.client}, :uses nil, :requires {core demo.core, demo.core demo.core, app demo.app, demo.app demo.app, weasel weasel.repl, weasel.repl weasel.repl, figwheel figwheel.client, figwheel.client figwheel.client}, :imports nil}

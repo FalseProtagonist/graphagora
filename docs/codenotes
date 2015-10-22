@@ -2,3 +2,4 @@
       neighbours 
       [nx ny pos & {:keys [wrap]}]
       (if wrap :true :false))
+

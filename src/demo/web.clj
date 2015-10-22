@@ -3,16 +3,34 @@
             [immutant.web.async           :as async]
             [immutant.web.middleware      :as mw]
             [demo.web.sse                 :as sse]
-            [demo.web.http-kit-comparison :as hk]
+            [demo.web.http-kit-comparison :as htk]
+            [demo.hiccup :as dh]
+            [hiccup.core :as h]
+            [hickory.core :as hik]
 ;            [demo.brepl :refer (browser-repl conn start-figwheel)]
             [compojure.route              :as route]
             [compojure.core     :refer (ANY GET defroutes)]
-            [ring.util.response :refer (response redirect content-type)]
+            [ring.util.response 
+             :refer 
+             (response redirect content-type file-response)]
             [clojure.pprint     :refer (pprint)]
             [environ.core       :refer (env)]
             [ring.middleware.reload :as reload]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [net.cgrand.reload :refer [auto-reload]]))
+            [net.cgrand.reload :refer [auto-reload]]
+))
+
+(def dev-mode (= "vagrant" (:user-name env)))
+
+(defn hook-dev-mode []
+(if 
+    dev-mode 
+  (do (require 
+       '[demo.brepl 
+         :refer 
+         (browser-repl conn start-figwheel)])
+      ((resolve 'start-figwheel))
+      )))
 
 (defn echo
   "Echos the request back as a string."
@@ -43,11 +61,16 @@
 
 
 (defroutes routes
-  (GET "/counter"  [] counter)
+;  (GET "/counter"  [] counter)
+;  (GET "/" {c :context} (redirect (str c "/hello.html")))
+;  (GET "*" [] (h/html dh/hello))
+;  (GET "*" [] (file-response "index.html" {:root "public"}))
+;  (GET "/" {c :context} (redirect (str c "/index.html")))
   (GET "/" {c :context} (redirect (str c "/hello.html")))
-  (GET "/reverser" [] reverser)
-  (GET "/sse"      [] sse/countdown)
-  (GET "/http-kit" [] hk/async-handler)
+;  (GET "/reverser" [] reverser)
+;  (GET "/sse"      [] sse/countdown)
+;  (GET "/http-kit" [] htk/async-handler)
+;  (GET "/wat" [] (h/html dh/hello))
   (route/resources "/")
   (ANY "*" [] echo)
 ;  (GET "/" {c :context} (redirect (str c "/index.html")))
@@ -83,5 +106,5 @@
       args)))
 
 (defn -main [& {:as args}] 
-  (do #_(start-figwheel) (apply reload-main defaults)))
+  (do (hook-dev-mode) (apply reload-main defaults)))
 

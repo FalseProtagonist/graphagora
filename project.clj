@@ -36,6 +36,9 @@
                  [reagent-forms "0.5.11"]
                  [reagent-utils "0.1.5"]
 
+                 [hiccup "1.0.5"]
+                 [hickory "0.5.4"]
+
                  [figwheel "0.2.5"]
                  [figwheel-sidecar "0.2.5"]
 ]
