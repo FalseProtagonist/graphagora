@@ -4,7 +4,6 @@ goog.require('cljs.core');
 goog.require('demo.core');
 goog.require('weasel.repl');
 goog.require('figwheel.client');
-demo.app.dev_mode = (cljs.core.truth_(cljs.core.first.call(null,cljs.core.first.call(null,d3.select(".is-dev"))))?true:false);
 demo.app.main = (function demo$app$main(){
 figwheel.client.watch_and_reload.call(null,new cljs.core.Keyword(null,"websocket-url","websocket-url",-490444938),"ws://localhost:3449/figwheel-ws",new cljs.core.Keyword(null,"jsload-callback","jsload-callback",-1949628369),(function (){
 return demo.core.main.call(null);

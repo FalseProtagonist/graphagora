@@ -6,7 +6,7 @@
 
 
 ;filthy but whatevs dude
-(def dev-mode 
+#_(def dev-mode 
   (-> 
    js/d3 
    (.select ".is-dev") 
