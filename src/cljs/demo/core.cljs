@@ -10,13 +10,11 @@
     :refer 
     [<! chan put! sliding-buffer sub pub timeout]]))
 
-
-
 (def nx 15)
 (def ny 15)
 (def r 40)
 (def wrap :true)
-(def color-map {:live "blue" :dead "blue"})
+(def color-map {:live "blue" :dead "red"})
 (def size-map {:live r :dead 0})
 (defn rand-circle-data []
   (logic/get-circle-coordinates nx ny r color-map))

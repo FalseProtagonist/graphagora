@@ -15,7 +15,7 @@
    (if true false)))
 
 (defn main []
-  (if 
+  #_(if 
       dev-mode 
     (do (figwheel/watch-and-reload
          :websocket-url "ws://localhost:3449/figwheel-ws"
