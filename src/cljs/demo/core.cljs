@@ -14,7 +14,7 @@
 (def ny 15)
 (def r 40)
 (def wrap :true)
-(def color-map {:live "blue" :dead "red"})
+(def color-map {:live "green" :dead "red"})
 (def size-map {:live r :dead 0})
 (defn rand-circle-data []
   (logic/get-circle-coordinates nx ny r color-map))
