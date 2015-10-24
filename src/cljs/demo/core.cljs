@@ -91,7 +91,7 @@
    [:div {:style {:color "red"}} [start-button]]
    [:div {:style {:color "red"}} [home-component]]]
   (.getElementById js/document "app"))
-#_ (js/alert "ugh3")
+#_(js/alert "ugh3")
  )
 
 

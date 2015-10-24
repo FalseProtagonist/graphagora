@@ -4,7 +4,7 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 ;do I want this? 24Oct15
-  :source-paths ["src/cljs" "src"]
+;  :source-paths ["src/cljs" "src"]
  
   :repl-options {
                  :timeout 120000
