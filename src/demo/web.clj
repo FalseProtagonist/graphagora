@@ -5,6 +5,7 @@
             [demo.web.sse                 :as sse]
             [demo.web.http-kit-comparison :as htk]
             [demo.hiccup :as dh]
+            [demo.dev :as dev]
             [hiccup.core :as h]
             [hickory.core :as hik]
 ;            [demo.brepl :refer (browser-repl conn start-figwheel)]
@@ -59,19 +60,25 @@
      :on-close   (fn [channel {:keys [code reason]}]
                    (println "close code:" code "reason:" reason))}))
 
+(def graph-page  
+  (dh/hello dev-mode))
 
 (defroutes routes
 ;  (GET "/counter"  [] counter)
 ;  (GET "/" {c :context} (redirect (str c "/hello.html")))
 ;  (GET "*" [] (h/html dh/hello))
+
 ;  (GET "*" [] (file-response "index.html" {:root "public"}))
 ;  (GET "/" {c :context} (redirect (str c "/index.html")))
-  (GET "/" {c :context} (redirect (str c "/hello.html")))
+;  (GET "/" {c :context} (redirect (str c "/hello.html")))
 ;  (GET "/reverser" [] reverser)
 ;  (GET "/sse"      [] sse/countdown)
 ;  (GET "/http-kit" [] htk/async-handler)
 ;  (GET "/wat" [] (h/html dh/hello))
   (route/resources "/")
+;dev alternative?
+;  (GET "*" []  dh/hello)
+  (GET "*" []  graph-page)
   (ANY "*" [] echo)
 ;  (GET "/" {c :context} (redirect (str c "/index.html")))
 ;(GET "/graphagora" {c :context} (redirect (str c "/hello.html")))

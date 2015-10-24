@@ -10,11 +10,13 @@
     :refer 
     [<! chan put! sliding-buffer sub pub timeout]]))
 
+
+
 (def nx 15)
 (def ny 15)
-(def r 20)
+(def r 40)
 (def wrap :true)
-(def color-map {:live "green" :dead "red"})
+(def color-map {:live "blue" :dead "blue"})
 (def size-map {:live r :dead 0})
 (defn rand-circle-data []
   (logic/get-circle-coordinates nx ny r color-map))
@@ -89,7 +91,7 @@
    [:div {:style {:color "red"}} [start-button]]
    [:div {:style {:color "red"}} [home-component]]]
   (.getElementById js/document "app"))
- ;(js/alert "no!")
+#_ (js/alert "ugh3")
  )
 
 

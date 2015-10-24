@@ -3,7 +3,8 @@
   :url "http://github.com/immutant/feature-demo"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-;  :source-paths ["src/cljs" "src"]
+;do I want this? 24Oct15
+  :source-paths ["src/cljs" "src"]
  
   :repl-options {
                  :timeout 120000
@@ -13,7 +14,7 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
 ;                 [org.clojure/clojurescript "0.0-2069"]
 ;                 [org.clojure/clojurescript "0.0-3058" :scope "provided"]
-[org.clojure/clojurescript "1.7.145" :scope "provided"]
+                 [org.clojure/clojurescript "1.7.145" :scope "provided"]
                  [org.immutant/immutant "2.0.2"]
                  [enlive "1.1.5"]
                  [compojure "1.3.4"]
@@ -48,8 +49,7 @@
             [lein-cljsbuild "1.0.5"]
             [lein-environ "1.0.0"]
             [cider/cider-nrepl "0.9.1"]
-            [lein-figwheel "0.2.5"]
-]
+            [lein-figwheel "0.2.5"]]
                    :figwheel {:http-server-root "public"
                               :server-port 3449
                               :css-dirs ["resources/public/css"]
@@ -78,7 +78,8 @@
   :aliases {"msg-client" ["run" "-m" "demo.remote-messaging-client"]}
   :profiles {:uberjar {:aot [demo.core]}
              :eap
-             {:exclusions [org.hornetq/hornetq-jms-server org.hornetq/hornetq-server
+             {:exclusions [org.hornetq/hornetq-jms-server 
+                           org.hornetq/hornetq-server
                            org.jboss.narayana.jta/narayana-jta]
               :dependencies [[org.hornetq/hornetq-jms-server "2.3.25.Final"]
                              [org.hornetq/hornetq-server "2.3.25.Final"]
