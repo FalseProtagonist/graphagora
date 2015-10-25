@@ -15,7 +15,7 @@
 (def ny 10)
 (def r 15)
 (def wrap :true)
-(def color-map {:live "green" :dead "orange"})
+(def color-map {:live "blue" :dead "orange"})
 (def size-map {:live r :dead 0})
 (defn rand-circle-data []
   (logic/get-circle-coordinates nx ny r color-map))
@@ -92,7 +92,7 @@
    [:div {:style {:color "red"}} [home-component]]]
   (.getElementById js/document "app"))
  (routes/app-routes) 
- (if dev-mode (js/alert "ugh3"))
+ (if dev-mode (js/alert "dev mode"))
  )
 
 

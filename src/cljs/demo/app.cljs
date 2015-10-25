@@ -20,7 +20,7 @@
     (do (figwheel/watch-and-reload
          :websocket-url "ws://localhost:3449/figwheel-ws"
          :jsload-callback (fn []
-                            (core/main dev-modey)))
+                            (core/main dev-mode)))
         (weasel/connect 
          "ws://localhost:9001" :verbose true :print #{:repl :console})))
   (core/main dev-mode))
