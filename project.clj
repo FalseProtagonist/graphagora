@@ -55,22 +55,22 @@
                               :css-dirs ["resources/public/css"]
                               :ring-handler demo.web/http-handler}
   :cljsbuild {:builds
-              { :app 
-               {
+              { :app {
                  :source-paths ["src/cljs"]
                  :compiler { ;; CLS generated JS script filename
                             :output-to "resources/public/js/app.js"
-                            :optimizations :none
+                            :optimizations :simple
                             :pretty-print true
                             :libs ["resources/libs/d3.v3.min.js"]}}
-               :test
-               {
+               :dev {
                  :source-paths ["src/cljs"]
                  :compiler { ;; CLS generated JS script filename
                             :output-to "resources/public/js/app.js"
                             :optimizations :none
                             :pretty-print true
-                            :libs ["resources/libs/d3.v3.min.js"]}}}}
+                            :libs ["resources/libs/d3.v3.min.js"]}}}
+              
+}
 ;  :main demo.web
   :main demo.core  
   :uberjar-name "demo-standalone.jar"
