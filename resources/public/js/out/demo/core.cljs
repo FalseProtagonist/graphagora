@@ -5,6 +5,7 @@
    [om.dom :as dom :include-macros true]
    [demo.life-draw :as draw] 
    [demo.life-logic :as logic]
+   [demo.routes :as routes]
    [reagent.core :as r]
    [cljs.core.async 
     :refer 
@@ -84,12 +85,14 @@
  (set-time-updater timeperiod)
  (r/render 
   [:div 
+   [:div {:style {:color "red" :float "left"}} [:a {:href "http://localhost:10555/about"} "Pop-up time"]]
    [:div {:style {:color "red" :float "left"}} [reset-button]]
    [:div {:style {:color "red":float "left"}} [stop-button]]
    [:div {:style {:color "red"}} [start-button]]
    [:div {:style {:color "red"}} [home-component]]]
   (.getElementById js/document "app"))
-#_(js/alert "ugh3")
+ (routes/app-routes) 
+ (js/alert "ugh3")
  )
 
 

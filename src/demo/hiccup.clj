@@ -16,8 +16,6 @@
             [:div {:id "graphag"}]
 ;devmode inject?
             [:script {:type "text/javascript", :src "/js/out/goog/base.js"}]
-            "<!--    <script src=\"js/d3.v3.min.js\" type=\"text/javascript\"></script>-->"
-;   [:script {:src "js/d3.min.js", :type "text/javascript"}]
             (include-js "js/d3.min.js")
             (include-js "js/app.js")
 ;devmode inject?

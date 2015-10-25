@@ -42,6 +42,10 @@
 
                  [figwheel "0.2.5"]
                  [figwheel-sidecar "0.2.5"]
+
+                 [com.domkm/silk "0.1.1"]
+                 [kibu/pushy "0.3.2"]
+                 [re-frame "0.5.0-alpha1"]
 ]
   :repositories [["Immutant incremental builds"
                   "http://downloads.immutant.org/incremental/"]]
@@ -55,20 +59,20 @@
                               :css-dirs ["resources/public/css"]
                               :ring-handler demo.web/http-handler}
   :cljsbuild {:builds
-              { :app {
+              [{ :id "app"
                  :source-paths ["src/cljs"]
                  :compiler { ;; CLS generated JS script filename
                             :output-to "resources/public/js/app.js"
                             :optimizations :simple
                             :pretty-print true
                             :libs ["resources/libs/d3.v3.min.js"]}}
-               :dev {
-                 :source-paths ["src/cljs"]
-                 :compiler { ;; CLS generated JS script filename
-                            :output-to "resources/public/js/app.js"
-                            :optimizations :none
-                            :pretty-print true
-                            :libs ["resources/libs/d3.v3.min.js"]}}}
+                { :id "dev"
+                     :source-paths ["src/cljs"]
+                     :compiler { ;; CLS generated JS script filename
+                                :output-to "resources/public/js/app.js"
+                                :optimizations :none
+                                :pretty-print true
+                                :libs ["resources/libs/d3.v3.min.js"]}}]
               
 }
 ;  :main demo.web
