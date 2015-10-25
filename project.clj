@@ -55,22 +55,16 @@
                               :css-dirs ["resources/public/css"]
                               :ring-handler demo.web/http-handler}
   :cljsbuild {:builds
-              [{;; CLJS source code path
-                :source-paths ["src/cljs"]
-
-                ;; Google Closure (CLS) options configuration
-                :compiler {;; CLS generated JS script filename
-                           :output-to "resources/public/js/app.js"
-
-                           ;; minimal JS optimization directive
-                           :optimizations :none
-
-                           ;; generated JS code prettyfication
-                           :pretty-print true
-                           :libs ["resources/libs/d3.v3.min.js"]}}]}
+              { :app 
+               {
+                 :source-paths ["src/cljs"]
+                 :compiler { ;; CLS generated JS script filename
+                            :output-to "resources/public/js/app.js"
+                            :optimizations :none
+                            :pretty-print true
+                            :libs ["resources/libs/d3.v3.min.js"]}}}}
 ;  :main demo.web
   :main demo.core  
- ; :main demo.mad#eup
   :uberjar-name "demo-standalone.jar"
   :min-lein-version "2.4.0"
   :jvm-opts ["-Dhornetq.data.dir=target/hornetq-data"
