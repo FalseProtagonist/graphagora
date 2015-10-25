@@ -7,3 +7,10 @@ git commit
 git push -force
 
 rebuilding js (lein cljsbuild) doesn't make new js push to web even on refresh
+
+it doesn't even seem to change what's loaded in the browser atm but not throwing errors - project.clj broken?
+
+-> figwheel fixed it!?
+->worked remotely!?
+
+->bricked openshift bits

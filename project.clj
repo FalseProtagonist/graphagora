@@ -62,6 +62,14 @@
                             :output-to "resources/public/js/app.js"
                             :optimizations :none
                             :pretty-print true
+                            :libs ["resources/libs/d3.v3.min.js"]}}
+               :test
+               {
+                 :source-paths ["src/cljs"]
+                 :compiler { ;; CLS generated JS script filename
+                            :output-to "resources/public/js/app.js"
+                            :optimizations :none
+                            :pretty-print true
                             :libs ["resources/libs/d3.v3.min.js"]}}}}
 ;  :main demo.web
   :main demo.core  
