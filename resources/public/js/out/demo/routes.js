@@ -18,9 +18,7 @@ var panel_name = cljs.core.keyword.call(null,[cljs.core.str(cljs.core.name.call(
 return alert([cljs.core.str(panel_name)].join(''));
 });
 demo.routes.app_routes = (function demo$routes$app_routes(){
-pushy.core.start_BANG_.call(null,pushy.core.pushy.call(null,demo.routes.dispatch_route,demo.routes.parse_url));
-
-return alert("pushy allegedly started");
+return pushy.core.start_BANG_.call(null,pushy.core.pushy.call(null,demo.routes.dispatch_route,demo.routes.parse_url));
 });
 
 //# sourceMappingURL=routes.js.map

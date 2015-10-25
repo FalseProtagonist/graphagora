@@ -30,5 +30,4 @@
     (js/alert (str panel-name))))
 
 (defn app-routes []
-  (do (pushy/start! (pushy/pushy dispatch-route parse-url))
-      (js/alert "pushy allegedly started")))
+  (pushy/start! (pushy/pushy dispatch-route parse-url)))

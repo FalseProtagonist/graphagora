@@ -81,7 +81,7 @@
                    :component-did-update life-component
                    }))
 
-(defn main []
+(defn main [dev-mode]
  (set-time-updater timeperiod)
  (r/render 
   [:div 
@@ -92,7 +92,7 @@
    [:div {:style {:color "red"}} [home-component]]]
   (.getElementById js/document "app"))
  (routes/app-routes) 
- (js/alert "ugh3")
+ (if dev-mode (js/alert "ugh3"))
  )
 
 

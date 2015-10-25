@@ -6,7 +6,7 @@
 
 
 ;filthy but whatevs dude
-#_(def dev-mode 
+(def dev-mode 
   (-> 
    js/d3 
    (.select ".is-dev") 
@@ -16,14 +16,14 @@
 
 (defn main []
   (if 
-      true
+    dev-mode
     (do (figwheel/watch-and-reload
          :websocket-url "ws://localhost:3449/figwheel-ws"
          :jsload-callback (fn []
-                            (core/main)))
+                            (core/main dev-mode)))
         (weasel/connect 
          "ws://localhost:9001" :verbose true :print #{:repl :console})))
-    (core/main))
+  (core/main dev-mode))
 
 (main)
 
