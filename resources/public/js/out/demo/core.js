@@ -11,7 +11,7 @@ demo.core.nx = (10);
 demo.core.ny = (10);
 demo.core.r = (15);
 demo.core.wrap = new cljs.core.Keyword(null,"true","true",-1114210334);
-demo.core.color_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),"purple",new cljs.core.Keyword(null,"dead","dead",-1946604091),"orange"], null);
+demo.core.color_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),"blue",new cljs.core.Keyword(null,"dead","dead",-1946604091),"orange"], null);
 demo.core.size_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),demo.core.r,new cljs.core.Keyword(null,"dead","dead",-1946604091),(0)], null);
 demo.core.rand_circle_data = (function demo$core$rand_circle_data(){
 return demo.life_logic.get_circle_coordinates.call(null,demo.core.nx,demo.core.ny,demo.core.r,demo.core.color_map);
