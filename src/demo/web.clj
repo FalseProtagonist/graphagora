@@ -79,6 +79,7 @@
 ;dev alternative?
 ;  (GET "*" []  dh/hello)
   (GET "*" []  graph-page)
+  (GET "/" []  graph-page)
   (ANY "*" [] echo)
 ;  (GET "/" {c :context} (redirect (str c "/index.html")))
 ;(GET "/graphagora" {c :context} (redirect (str c "/hello.html")))
