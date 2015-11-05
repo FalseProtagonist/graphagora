@@ -61,7 +61,7 @@
                    (println "close code:" code "reason:" reason))}))
 
 (def graph-page  
-  (dh/hello true))
+  (dh/index-page true))
 
 (defroutes routes
 ;  (GET "/counter"  [] counter)
