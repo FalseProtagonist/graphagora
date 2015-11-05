@@ -15,7 +15,7 @@
 (def ny 10)
 (def r 15)
 (def wrap :true)
-(def color-map {:live "sienna" :dead "black"})
+(def color-map {:live "blue" :dead "black"})
 (def size-map {:live r :dead 0})
 (defn rand-circle-data []
   (logic/get-circle-coordinates nx ny r color-map))
@@ -56,17 +56,14 @@
 (defn reset-state []
   (reset! circle-state (get-circle-state)))
 
-(defn life-component []
+(defn life-inner-component []
   (draw/draw-update-circles 
    (:circles @circle-state)
    timeperiod)
   )
 
-(defn hello []
+(defn draw-svg []
   [:div#life (if @circle-state [:svg {:width 1500 :height 1500}])])
-
-(defn int-fn []
-   [:p @int-state])
 
 (defn reset-button []
   [:button {:onClick reset-state} "Random Data"])
@@ -77,50 +74,30 @@
 (defn start-button []
   [:button {:onClick #(set-time-updater timeperiod)} "Start"])
 
-(defn inc-fn []
-  [:button {:onClick #(swap! int-state inc)} "Increment"])
-
 (defn show-fn []
   [:button {:onClick #(swap! show-life not)} "Show"])
 
-(defn home-component []
-  (r/create-class {:reagent-render hello
+(defn life-component []
+  (r/create-class {:reagent-render draw-svg
                    :component-will-mount
                    (do ;(js/alert "willmount")
                        ; (draw/draw-svg 1000 1000)
                        )
-                   :component-did-update life-component
+                   :component-did-update life-inner-component
                    }))
 
 (defn daddy-life []
-  (if @show-life [:div 
-   [:div {:style {:color "red" :float "left"}} [:a {:href "http://localhost:10555/about"} "Pop-up time"]]
-   [:div {:style {:color "red" :float "left"}} [reset-button]]
-   [:div {:style {:color "red":float "left"}} [stop-button]]
-   [:div {:style {:color "red":float "left"}} [int-fn]]
-   [:div {:style {:color "red":float "left"}} [inc-fn]]
-   [:div {:style {:color "red":float "left"}} [show-fn]]
-   [:div {:style {:color "red"}} [start-button]]
-   [:div {:style {:color "red"}} [home-component]]]))
-
-#_(defn main [dev-mode]
- (set-time-updater timeperiod)
- (r/render 
-  [:div 
-   [:div {:style {:color "red" :float "left"}} [:a {:href "http://localhost:10555/about"} "Pop-up time"]]
-   [:div {:style {:color "red" :float "left"}} [reset-button]]
-   [:div {:style {:color "red":float "left"}} [stop-button]]
-   [:div {:style {:color "red":float "left"}} [int-fn]]
-   [:div {:style {:color "red":float "left"}} [inc-fn]]
-   [:div {:style {:color "red"}} [start-button]]
-   [:div {:style {:color "red"}} [home-component]]]
-  (.getElementById js/document "app"))
- )
+  (set-time-updater timeperiod)
+    [:div 
+     [:div [show-fn]]
+     [:div {:style {:color "red" :float "left"}} [reset-button]]
+     [:div {:style {:color "red":float "left"}} [stop-button]]
+     [:div {:style {:color "red"}} [start-button]]
+     [:div {:style {:color "red"}} [life-component]]])
 
 (defn main [dev-mode]
  (set-time-updater timeperiod)
  (r/render 
   [:div [:div [show-fn]]
    [:div [daddy-life]]]  
-  (.getElementById js/document "app"))
- )
+  (.getElementById js/document "app")))
