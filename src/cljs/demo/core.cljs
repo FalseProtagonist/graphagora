@@ -27,14 +27,6 @@
                   (.getElementById js/document "app")))
 
 (defn main [dev-mode] 
-;  (life/main dev-mode)
-;  (graph/force-layout)
   (mount-root)
   (routes/app-routes) 
   (if dev-mode (log (str "dev mode" " " (:hello @db/db)))))
-
-#_(defn main [dev-mode] 
-  (life/main dev-mode)
-  (routes/app-routes) 
-  (if dev-mode (js/alert (str "dev mode" " " (:hello @db/db))))
-  )

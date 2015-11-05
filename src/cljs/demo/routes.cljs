@@ -9,8 +9,9 @@
 
  	
 (def routes (silk/routes [[:home [[]]]
-                          [:about [["about"]]]
-                          [:life [["life"]]]]))
+                          [:index [["index"]]]
+                          [:life [["life"]]]
+                          [:catch [[:anything]]]]))
 
 (defn- sanitize-silk-keywords [matched-route]
   (rename-keys matched-route {:domkm.silk/name    :name
@@ -21,12 +22,19 @@
 (defn- parse-url [url]
   (silk/arrive routes url))
 
+(def history nil)
 (defn- dispatch-route [matched-route]
   (let [matched-route (sanitize-silk-keywords matched-route)
         panel-name (:name matched-route)]
     (log (str "panel name is " panel-name))
-    (swap! db #(assoc % :panel panel-name))
+    (if 
+        (= panel-name :catch)
+      (do (log "caught in dispatch!")
+          (pushy/set-token! history "index"))
+      (swap! db #(assoc % :panel panel-name)))
    (log (str "db is " @db))))
 
+(def history (pushy/pushy dispatch-route parse-url))
+
 (defn app-routes []
-  (pushy/start! (pushy/pushy dispatch-route parse-url)))
+  (pushy/start! history))
