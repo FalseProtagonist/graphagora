@@ -15,7 +15,6 @@
     :refer 
     [<! chan put! sliding-buffer sub pub timeout]]))
 
-(js/alert "am I live?")
 (def panels {:life life/daddy-life :index index/daddy-index})
 
 (defn main-panel [dev-mode]
