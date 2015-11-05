@@ -1,7 +1,7 @@
 (ns demo.hiccup
   (:use [hiccup.page :only (html5 include-css include-js)]))
 
-(defn hello [dev-mode]
+(defn index-page [dev-mode]
   (html5 {:lang "en"}
            [:head
             (if dev-mode {:class "is-dev"} {})
@@ -17,6 +17,7 @@
 ;devmode inject?
             [:script {:type "text/javascript", :src "/js/out/goog/base.js"}]
             (include-js "js/d3.min.js")
+            (include-js "js/rawjavascript.js")
             (include-js "js/app.js")
 ;devmode inject?
             (if dev-mode 
