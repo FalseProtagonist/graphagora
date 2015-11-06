@@ -49,7 +49,7 @@ goog.addDependency("../demo/db.js", ['demo.db'], ['reagent.core', 'cljs.core']);
 goog.addDependency("../re_frame/core.js", ['re_frame.core'], ['cljs.core', 're_frame.router', 're_frame.utils', 're_frame.handlers', 're_frame.subs', 're_frame.middleware']);
 goog.addDependency("../demo/routes.js", ['demo.routes'], ['domkm.silk', 'cljs.core', 'demo.db', 'clojure.set', 'demo.util', 'pushy.core', 're_frame.core']);
 goog.addDependency("../om/core.js", ['om.core'], ['goog.dom', 'cljs.core', 'om.dom', 'goog.ui.IdGenerator']);
-goog.addDependency("../demo/life_core.js", ['demo.life_core'], ['reagent.core', 'demo.life_logic', 'cljs.core', 'demo.life_draw', 'om.dom', 'cljs.core.async', 'demo.db', 'om.core']);
+goog.addDependency("../demo/life_core.js", ['demo.life_core'], ['reagent.core', 'demo.life_logic', 'cljs.core', 'demo.life_draw', 'om.dom', 'cljs.core.async', 'demo.db', 'om.core', 'demo.util']);
 goog.addDependency("../demo/core.js", ['demo.core'], ['reagent.core', 'demo.index', 'demo.life_logic', 'cljs.core', 'demo.life_draw', 'om.dom', 'cljs.core.async', 'demo.db', 'demo.routes', 'demo.life_core', 'om.core', 'demo.util']);
 goog.addDependency("../demo/app.js", ['demo.app'], ['weasel.repl', 'cljs.core', 'figwheel.client', 'demo.core']);
 goog.addDependency("../demo/dev.js", ['demo.dev'], ['weasel.repl', 'cljs.core', 'figwheel.client', 'demo.core', 'demo.app']);

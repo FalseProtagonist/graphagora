@@ -8,11 +8,12 @@ goog.require('reagent.core');
 goog.require('cljs.core.async');
 goog.require('demo.db');
 goog.require('om.core');
+goog.require('demo.util');
 demo.life_core.nx = (10);
 demo.life_core.ny = (10);
 demo.life_core.r = (15);
 demo.life_core.wrap = new cljs.core.Keyword(null,"true","true",-1114210334);
-demo.life_core.color_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),"green",new cljs.core.Keyword(null,"dead","dead",-1946604091),"red"], null);
+demo.life_core.color_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),"blue",new cljs.core.Keyword(null,"dead","dead",-1946604091),"black"], null);
 demo.life_core.size_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"live","live",-1610148039),demo.life_core.r,new cljs.core.Keyword(null,"dead","dead",-1946604091),(0)], null);
 demo.life_core.rand_circle_data = (function demo$life_core$rand_circle_data(){
 return demo.life_logic.get_circle_coordinates.call(null,demo.life_core.nx,demo.life_core.ny,demo.life_core.r,demo.life_core.color_map);
@@ -21,19 +22,12 @@ demo.life_core.get_circle_state = (function demo$life_core$get_circle_state(){
 return demo.life_logic.update_visuals_main.call(null,demo.life_core.rand_circle_data.call(null),demo.life_core.color_map,demo.life_core.size_map);
 });
 demo.life_core.circle_state = reagent.core.atom.call(null,demo.life_core.get_circle_state.call(null));
-demo.life_core.int_state = reagent.core.atom.call(null,(0));
 demo.life_core.timer_state = reagent.core.atom.call(null,null);
 demo.life_core.timeperiod = (1650);
-if(typeof demo.life_core.timer !== 'undefined'){
-} else {
-demo.life_core.timer = cljs.core.atom.call(null,(new Date()));
-}
-if(typeof demo.life_core.state !== 'undefined'){
-} else {
-demo.life_core.state = reagent.core.atom.call(null,"state");
-}
 demo.life_core.show_life = reagent.core.atom.call(null,true);
 demo.life_core.set_time_updater = (function demo$life_core$set_time_updater(speed){
+demo.util.log.call(null,"set time updater");
+
 clearInterval(cljs.core.deref.call(null,demo.life_core.timer_state));
 
 return cljs.core.reset_BANG_.call(null,demo.life_core.timer_state,setInterval((function (){
@@ -67,21 +61,24 @@ return demo.life_core.set_time_updater.call(null,demo.life_core.timeperiod);
 });
 demo.life_core.show_fn = (function demo$life_core$show_fn(){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"onClick","onClick",-1991238530),(function (){
-return cljs.core.swap_BANG_.call(null,demo.life_core.show_life,cljs.core.not);
+cljs.core.swap_BANG_.call(null,demo.life_core.show_life,cljs.core.not);
+
+return "hello";
 })], null),"Show"], null);
 });
 demo.life_core.life_component = (function demo$life_core$life_component(){
 return reagent.core.create_class.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"reagent-render","reagent-render",-985383853),demo.life_core.draw_svg,new cljs.core.Keyword(null,"component-will-mount","component-will-mount",209708855),null,new cljs.core.Keyword(null,"component-did-update","component-did-update",-1468549173),demo.life_core.life_inner_component], null));
 });
 demo.life_core.daddy_life = (function demo$life_core$daddy_life(){
+demo.util.log.call(null,"whatt reset time updater");
+
 demo.life_core.set_time_updater.call(null,demo.life_core.timeperiod);
 
-return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.show_fn], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"color","color",1011675173),"red",new cljs.core.Keyword(null,"float","float",-1732389368),"left"], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.reset_button], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"color","color",1011675173),"red",new cljs.core.Keyword(null,"float","float",-1732389368),"left"], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.stop_button], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"color","color",1011675173),"red"], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.start_button], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"color","color",1011675173),"red"], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.life_component], null)], null)], null);
+return (function (){
+demo.util.log.call(null,"life redrawn");
+
+return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.show_fn], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"color","color",1011675173),"red",new cljs.core.Keyword(null,"float","float",-1732389368),"left"], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.reset_button], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"color","color",1011675173),"red",new cljs.core.Keyword(null,"float","float",-1732389368),"left"], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.stop_button], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"color","color",1011675173),"red"], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.start_button], null)], null),(cljs.core.truth_(cljs.core.deref.call(null,demo.life_core.show_life))?new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"color","color",1011675173),"red"], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.life_component], null)], null):null)], null);
 });
-demo.life_core.main = (function demo$life_core$main(dev_mode){
-demo.life_core.set_time_updater.call(null,demo.life_core.timeperiod);
-
-return reagent.core.render.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.show_fn], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.life_core.daddy_life], null)], null)], null),document.getElementById("app"));
 });
 
 //# sourceMappingURL=life_core.js.map

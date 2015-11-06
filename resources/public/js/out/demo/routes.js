@@ -21,13 +21,13 @@ var panel_name = new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$
 demo.util.log.call(null,[cljs.core.str("panel name is "),cljs.core.str(panel_name)].join(''));
 
 if(cljs.core._EQ_.call(null,panel_name,new cljs.core.Keyword(null,"catch","catch",1038065524))){
-demo.util.log.call(null,"caught in dispatch!");
+demo.util.log.call(null,"redirected non-matching url to index");
 
 pushy.core.set_token_BANG_.call(null,demo.routes.history,"index");
 } else {
 cljs.core.swap_BANG_.call(null,demo.db.db,((function (matched_route__$1,panel_name){
-return (function (p1__34547_SHARP_){
-return cljs.core.assoc.call(null,p1__34547_SHARP_,new cljs.core.Keyword(null,"panel","panel",-558637456),panel_name);
+return (function (p1__34673_SHARP_){
+return cljs.core.assoc.call(null,p1__34673_SHARP_,new cljs.core.Keyword(null,"panel","panel",-558637456),panel_name);
 });})(matched_route__$1,panel_name))
 );
 }

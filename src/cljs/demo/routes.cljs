@@ -29,7 +29,7 @@
     (log (str "panel name is " panel-name))
     (if 
         (= panel-name :catch)
-      (do (log "caught in dispatch!")
+      (do (log "redirected non-matching url to index")
           (pushy/set-token! history "index"))
       (swap! db #(assoc % :panel panel-name)))
    (log (str "db is " @db))))

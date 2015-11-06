@@ -24,7 +24,7 @@
 
 (defn mount-root []
   (r/render [main-panel]
-                  (.getElementById js/document "app")))
+            (.getElementById js/document "app")))
 
 (defn main [dev-mode] 
   (mount-root)
