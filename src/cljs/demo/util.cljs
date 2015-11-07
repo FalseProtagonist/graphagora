@@ -14,3 +14,14 @@
 (defn log [msg & rest] (.log js/console (str msg (apply str rest))))
 
 (defn clear-component [] nil)
+
+;(def avail-height (-> js/window .-screen .-availHeight))
+
+;(def avail-width (-> js/window .-screen .-availWidth))
+
+(def avail-height (-> js/document .-documentElement .-clientHeight))
+
+(def avail-width (-> js/document .-documentElement .-clientWidth))
+
+
+

@@ -4,15 +4,15 @@ goog.require('cljs.core');
 goog.require('demo.util');
 goog.require('demo.routes');
 goog.require('reagent.core');
-demo.index.link_data = cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"className","className",-1983287057),"",new cljs.core.Keyword(null,"value","value",305978217),(0),new cljs.core.Keyword(null,"children","children",-940561982),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"Game of Life",new cljs.core.Keyword(null,"value","value",305978217),(1000),new cljs.core.Keyword(null,"link","link",-1769163468),"life",new cljs.core.Keyword(null,"packageName","packageName",267549922),"aa"], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"Spam",new cljs.core.Keyword(null,"value","value",305978217),(100),new cljs.core.Keyword(null,"link","link",-1769163468),"spam",new cljs.core.Keyword(null,"packageName","packageName",267549922),"ee"], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"About",new cljs.core.Keyword(null,"value","value",305978217),(200),new cljs.core.Keyword(null,"link","link",-1769163468),"about",new cljs.core.Keyword(null,"packageName","packageName",267549922),"bb"], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"Blog",new cljs.core.Keyword(null,"value","value",305978217),(300),new cljs.core.Keyword(null,"link","link",-1769163468),"blog",new cljs.core.Keyword(null,"packageName","packageName",267549922),"cc"], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"Graphs",new cljs.core.Keyword(null,"value","value",305978217),(500),new cljs.core.Keyword(null,"link","link",-1769163468),"graph",new cljs.core.Keyword(null,"packageName","packageName",267549922),"dd"], null)], null)], null));
+demo.index.link_data = cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"className","className",-1983287057),"",new cljs.core.Keyword(null,"value","value",305978217),(0),new cljs.core.Keyword(null,"children","children",-940561982),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"Game of Life",new cljs.core.Keyword(null,"value","value",305978217),(2000),new cljs.core.Keyword(null,"link","link",-1769163468),"life",new cljs.core.Keyword(null,"packageName","packageName",267549922),"aa"], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"Spam",new cljs.core.Keyword(null,"value","value",305978217),(200),new cljs.core.Keyword(null,"link","link",-1769163468),"spam",new cljs.core.Keyword(null,"packageName","packageName",267549922),"ee"], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"About",new cljs.core.Keyword(null,"value","value",305978217),(400),new cljs.core.Keyword(null,"link","link",-1769163468),"about",new cljs.core.Keyword(null,"packageName","packageName",267549922),"bb"], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"Blog",new cljs.core.Keyword(null,"value","value",305978217),(600),new cljs.core.Keyword(null,"link","link",-1769163468),"blog",new cljs.core.Keyword(null,"packageName","packageName",267549922),"cc"], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"className","className",-1983287057),"Graphs",new cljs.core.Keyword(null,"value","value",305978217),(1000),new cljs.core.Keyword(null,"link","link",-1769163468),"graph",new cljs.core.Keyword(null,"packageName","packageName",267549922),"dd"], null)], null)], null));
 demo.index.r = (400);
 demo.index.format = d3.format(",d");
 demo.index.fill = d3.scale.category10();
-demo.index.bubble = d3.layout.pack().sort(null).size([demo.index.r,demo.index.r]);
+demo.index.bubble = d3.layout.pack().sort(null).size(cljs.core.clj__GT_js.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.util.avail_width,demo.util.avail_height], null)));
 demo.index.make_chart = (function demo$index$make_chart(){
 demo.util.log.call(null,"make-chart called");
 
-return d3.select("#index").append("svg:svg").attr("width",demo.index.r).attr("height",demo.index.r).attr("class","bubble");
+return d3.select("#index").append("svg:svg").attr("width",demo.util.avail_width).attr("height",demo.util.avail_height).attr("class","bubble");
 });
 demo.index.make_node = (function demo$index$make_node(link_data){
 demo.util.log.call(null,"make-node called");
@@ -39,8 +39,8 @@ return [cljs.core.str(d.className),cljs.core.str(":"),cljs.core.str(demo.index.f
 );
 
 node.append("svg:circle").on("click",((function (node){
-return (function (p1__33630_SHARP_){
-return demo.routes.set_history.call(null,p1__33630_SHARP_.link);
+return (function (p1__34498_SHARP_){
+return demo.routes.set_history.call(null,p1__34498_SHARP_.link);
 });})(node))
 ).attr("r",((function (node){
 return (function (d){

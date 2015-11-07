@@ -1,6 +1,6 @@
 (ns demo.index
   (:require
-   [demo.util :refer [log]]
+   [demo.util :refer [log avail-height avail-width]]
    [demo.routes :refer [set-history]]
    [reagent.core :as r]))
 
@@ -11,27 +11,28 @@
                           :children 
                           [
                            {:className "Game of Life" 
-                            :value 1000 
+                            :value 2000 
                             :link "life"
                             :packageName "aa"}
                            {:className "Spam" 
-                            :value 100
+                            :value 200
                             :link "spam"
                             :packageName "ee"}
                            {:className "About" 
-                            :value 200
+                            :value 400
                             :link "about"
                             :packageName "bb"}
                            {:className "Blog"
-                            :value 300
+                            :value 600
                             :link "blog"
                             :packageName "cc"}
                            {:className "Graphs" 
-                            :value 500
+                            :value 1000
                             :link "graph"
                             :packageName "dd"}]}))
 
 (def r 400)
+
 (def format (-> js/d3 (.format ",d")))
 (def fill (-> js/d3 .-scale .category10))
 (def bubble 
@@ -39,15 +40,17 @@
       .-layout 
       .pack 
       (.sort nil) 
-      (.size #js[r r])))
+    ;  (.size #js[r r])
+      (.size (clj->js [ avail-width avail-height]))
+      ))
 
 (defn make-chart []
     (log "make-chart called")
   (-> js/d3 
       (.select "#index")
       (.append "svg:svg")
-      (.attr "width" r)
-      (.attr "height" r)
+      (.attr "width" avail-width)
+      (.attr "height" avail-height)
       (.attr "class" "bubble")
       ))
 

@@ -6,7 +6,7 @@
    [demo.life-draw :as draw] 
    [demo.life-logic :as logic]
    [demo.db :as db]
-   [demo.util :refer [log]]
+   [demo.util :refer [log avail-height avail-width]]
    [reagent.core :as r]
    [cljs.core.async 
     :refer 
@@ -14,7 +14,10 @@
 
 (def nx 10)
 (def ny 10)
-(def r 15)
+;(def r 15)
+;filthy i dunno how to do real grids yet
+(def r (/ (min (/ (- avail-height 80) nx) (/ avail-width ny)) 2 ))
+
 (def wrap :true)
 (def color-map {:live "green" :dead "red"})
 (def size-map {:live r :dead 0})
