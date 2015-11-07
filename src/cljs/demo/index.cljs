@@ -26,10 +26,14 @@
                             :value 600
                             :link "blog"
                             :packageName "cc"}
-                           {:className "Graphs" 
+                           {:className "Dancing Graphs" 
+                            :value 800
+                            :link "dancing-graph"
+                            :packageName "dd"}
+                           {:className "Clicky Graphs" 
                             :value 1000
                             :link "graph"
-                            :packageName "dd"}]}))
+                            :packageName "ff"}]}))
 
 (def r 400)
 

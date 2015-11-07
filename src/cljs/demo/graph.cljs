@@ -1,8 +1,9 @@
 (ns demo.graph
 
 
-#_(:require    [om.core :as om :include-macros true]
-                                        ;  [om.dom :as dom :include-macros true]
+(:require  
+ [demo.util :refer [log avail-height avail-width]]
+ [reagent.core :as r]
 ))
 
 (defn getrandomnodes [n width height]
@@ -10,12 +11,11 @@
                                           :x (rand width) 
                                           :y (rand height) 
                                           :graph (rand-int 5)})))))
-#_(defn dummy [] (js/alert "don't call"))
 
 (defn getrandomlinks [n]
   (clj->js (for [source (range n) 
                  target (range n)
-                 :when (= 0 (rand-int 10))]
+                 :when (= 0 (rand-int 20))]
              (clj->js {:source source :target target}))))
 
 (def clear-command (fn [] (-> 
@@ -24,12 +24,11 @@
                                         ;(.selectAll "*") 
                                   .remove)))
 
-
-
 (defn force-layout []
-  (let [width 1000 height 1000
-        nodes (getrandomnodes 20 1000 1000)
-        links (getrandomlinks 20)
+  (let [width avail-width 
+        height avail-height
+        nodes (getrandomnodes 30 1000 1000)
+        links (getrandomlinks 30)
         animationstep 400
         counter (atom 10)
         colourmap {0 "green" 1 "red" 2 "blue" 3 "blue" 4 "blue"}
@@ -56,7 +55,7 @@
               (.data nodes)
               .enter
               (.append "circle")
-              (.attr "r" (/ width 100))
+              (.attr "r" (/ width 80))
               (.attr "cx" #(.-x %))
               (.attr "cy" #(.-y %))
               (.on "click" #(js/alert "clicked"))
@@ -96,6 +95,12 @@
                (.on "tick" updateall )
                .start)]))
 
+(defn draw-svg []
+  [:div#dancing])
 
+(defn force-component []
+  (r/create-class { :reagent-render draw-svg
+                   :component-did-mount force-layout
+                   }))
 
 

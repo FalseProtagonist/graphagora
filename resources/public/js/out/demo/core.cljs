@@ -2,23 +2,21 @@
   (:require 
            ;[demo.graph :as graph]
    [demo.util :refer [log]]
-   [om.core :as om :include-macros true]
-   [om.dom :as dom :include-macros true]
    [demo.life-draw :as draw] 
    [demo.life-logic :as logic]
    [demo.life-core :as life]
+   [demo.index :as index]
+   [demo.graph :as graph]
    [demo.db :as db]
    [demo.routes :as routes]
    [reagent.core :as r]
-   [demo.index :as index]
    [cljs.core.async 
     :refer 
     [<! chan put! sliding-buffer sub pub timeout]]))
 
 (def panels {:life life/daddy-life 
-             :index 
-index/index-component 
-;index/daddy-index
+             :index index/index-component 
+             :dancing-graph graph/force-component
              })
 
 (defn main-panel [dev-mode]

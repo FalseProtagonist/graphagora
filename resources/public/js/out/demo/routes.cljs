@@ -10,6 +10,7 @@
  	
 (def routes (silk/routes [[:home [[]]]
                           [:index [["index"]]]
+                          [:dancing-graph [["dancing-graph"]]]
                           [:life [["life"]]]
                           [:catch [[:anything]]]]))
 
