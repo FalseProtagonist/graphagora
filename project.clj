@@ -15,7 +15,8 @@
 ;                 [org.clojure/clojurescript "0.0-2069"]
 ;                 [org.clojure/clojurescript "0.0-3058" :scope "provided"]
                  [org.clojure/clojurescript "1.7.145" :scope "provided"]
-                 [org.immutant/immutant "2.0.2"]
+;                 [org.immutant/immutant "2.0.2"]
+                 [org.immutant/immutant "2.1.0"]
                  [enlive "1.1.5"]
                  [compojure "1.3.4"]
                  [ring "1.3.2"]
@@ -31,7 +32,7 @@
                  [com.cemerick/piggieback "0.1.5"]
                  [weasel "0.6.0"]
 
-                 [om "0.8.0-rc1"]
+;                 [om "0.8.0-rc1"]
                  
                  [reagent "0.5.1"]
                  [reagent-forms "0.5.11"]

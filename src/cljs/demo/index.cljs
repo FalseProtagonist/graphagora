@@ -90,6 +90,7 @@
 
     (-> node
         (.append "text")
+        (.on "click" #(set-history (.-link %)))
         (.attr "text-anchor" "middle")
         (.attr "dy" ".3em")
         (.attr "fill" "white")

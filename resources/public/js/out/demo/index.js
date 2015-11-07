@@ -39,8 +39,8 @@ return [cljs.core.str(d.className),cljs.core.str(":"),cljs.core.str(demo.index.f
 );
 
 node.append("svg:circle").on("click",((function (node){
-return (function (p1__34515_SHARP_){
-return demo.routes.set_history.call(null,p1__34515_SHARP_.link);
+return (function (p1__32595_SHARP_){
+return demo.routes.set_history.call(null,p1__32595_SHARP_.link);
 });})(node))
 ).attr("r",((function (node){
 return (function (d){
@@ -52,7 +52,11 @@ return demo.index.fill.call(null,d.packageName);
 });})(node))
 );
 
-node.append("text").attr("text-anchor","middle").attr("dy",".3em").attr("fill","white").text(((function (node){
+node.append("text").on("click",((function (node){
+return (function (p1__32596_SHARP_){
+return demo.routes.set_history.call(null,p1__32596_SHARP_.link);
+});})(node))
+).attr("text-anchor","middle").attr("dy",".3em").attr("fill","white").text(((function (node){
 return (function (d){
 return d.className.substring((0),(d.r / (3)));
 });})(node))

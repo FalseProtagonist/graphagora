@@ -1,8 +1,5 @@
 (ns demo.life-core
   (:require 
-           ;[demo.graph :as graph]
-   [om.core :as om :include-macros true]
-   [om.dom :as dom :include-macros true]
    [demo.life-draw :as draw] 
    [demo.life-logic :as logic]
    [demo.db :as db]
