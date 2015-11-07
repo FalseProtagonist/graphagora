@@ -1,6 +1,7 @@
 goog.addDependency("base.js", ['goog'], []);
 goog.addDependency("../cljs/core.js", ['cljs.core'], ['goog.string', 'goog.object', 'goog.string.StringBuffer', 'goog.array']);
 goog.addDependency("../demo/notes.js", ['demo.notes'], ['cljs.core']);
+goog.addDependency("../demo/scrap.js", ['demo.scrap'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/ioc_helpers.js", ['cljs.core.async.impl.ioc_helpers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
@@ -41,13 +42,13 @@ goog.addDependency("../figwheel/client/file_reloading.js", ['figwheel.client.fil
 goog.addDependency("../cljs/repl.js", ['cljs.repl'], ['cljs.core']);
 goog.addDependency("../figwheel/client/heads_up.js", ['figwheel.client.heads_up'], ['cljs.core', 'cljs.core.async', 'figwheel.client.socket', 'clojure.string']);
 goog.addDependency("../figwheel/client.js", ['figwheel.client'], ['goog.Uri', 'cljs.core', 'cljs.core.async', 'figwheel.client.file_reloading', 'figwheel.client.utils', 'cljs.repl', 'figwheel.client.heads_up', 'figwheel.client.socket', 'clojure.string']);
-goog.addDependency("../demo/index.js", ['demo.index'], ['reagent.core', 'cljs.core']);
-goog.addDependency("../demo/util.js", ['demo.util'], ['cljs.core']);
-goog.addDependency("../demo/life_logic.js", ['demo.life_logic'], ['cljs.core', 'demo.util']);
-goog.addDependency("../demo/life_draw.js", ['demo.life_draw'], ['cljs.core']);
 goog.addDependency("../demo/db.js", ['demo.db'], ['reagent.core', 'cljs.core']);
+goog.addDependency("../demo/util.js", ['demo.util'], ['cljs.core']);
 goog.addDependency("../re_frame/core.js", ['re_frame.core'], ['cljs.core', 're_frame.router', 're_frame.utils', 're_frame.handlers', 're_frame.subs', 're_frame.middleware']);
 goog.addDependency("../demo/routes.js", ['demo.routes'], ['domkm.silk', 'cljs.core', 'demo.db', 'clojure.set', 'demo.util', 'pushy.core', 're_frame.core']);
+goog.addDependency("../demo/index.js", ['demo.index'], ['reagent.core', 'cljs.core', 'demo.routes', 'demo.util']);
+goog.addDependency("../demo/life_logic.js", ['demo.life_logic'], ['cljs.core', 'demo.util']);
+goog.addDependency("../demo/life_draw.js", ['demo.life_draw'], ['cljs.core']);
 goog.addDependency("../om/core.js", ['om.core'], ['goog.dom', 'cljs.core', 'om.dom', 'goog.ui.IdGenerator']);
 goog.addDependency("../demo/life_core.js", ['demo.life_core'], ['reagent.core', 'demo.life_logic', 'cljs.core', 'demo.life_draw', 'om.dom', 'cljs.core.async', 'demo.db', 'om.core', 'demo.util']);
 goog.addDependency("../demo/core.js", ['demo.core'], ['reagent.core', 'demo.index', 'demo.life_logic', 'cljs.core', 'demo.life_draw', 'om.dom', 'cljs.core.async', 'demo.db', 'demo.routes', 'demo.life_core', 'om.core', 'demo.util']);

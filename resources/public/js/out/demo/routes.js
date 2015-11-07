@@ -26,8 +26,8 @@ demo.util.log.call(null,"redirected non-matching url to index");
 pushy.core.set_token_BANG_.call(null,demo.routes.history,"index");
 } else {
 cljs.core.swap_BANG_.call(null,demo.db.db,((function (matched_route__$1,panel_name){
-return (function (p1__34673_SHARP_){
-return cljs.core.assoc.call(null,p1__34673_SHARP_,new cljs.core.Keyword(null,"panel","panel",-558637456),panel_name);
+return (function (p1__33856_SHARP_){
+return cljs.core.assoc.call(null,p1__33856_SHARP_,new cljs.core.Keyword(null,"panel","panel",-558637456),panel_name);
 });})(matched_route__$1,panel_name))
 );
 }
@@ -35,6 +35,9 @@ return cljs.core.assoc.call(null,p1__34673_SHARP_,new cljs.core.Keyword(null,"pa
 return demo.util.log.call(null,[cljs.core.str("db is "),cljs.core.str(cljs.core.deref.call(null,demo.db.db))].join(''));
 });
 demo.routes.history = pushy.core.pushy.call(null,demo.routes.dispatch_route,demo.routes.parse_url);
+demo.routes.set_history = (function demo$routes$set_history(token){
+return pushy.core.set_token_BANG_.call(null,demo.routes.history,token);
+});
 demo.routes.app_routes = (function demo$routes$app_routes(){
 return pushy.core.start_BANG_.call(null,demo.routes.history);
 });

@@ -12,12 +12,12 @@ goog.require('demo.db');
 goog.require('demo.life_core');
 goog.require('om.core');
 goog.require('demo.util');
-demo.core.panels = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"life","life",939004719),demo.life_core.daddy_life,new cljs.core.Keyword(null,"index","index",-1531685915),demo.index.daddy_index], null);
+demo.core.panels = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"life","life",939004719),demo.life_core.daddy_life,new cljs.core.Keyword(null,"index","index",-1531685915),demo.index.index_component], null);
 demo.core.main_panel = (function demo$core$main_panel(dev_mode){
 var active_panel = demo.core.panels.call(null,cljs.core.deref.call(null,demo.db.db).call(null,new cljs.core.Keyword(null,"panel","panel",-558637456)));
 demo.util.log.call(null,"active panel changed panel is",cljs.core.deref.call(null,demo.db.db).call(null,new cljs.core.Keyword(null,"panel","panel",-558637456)));
 
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [active_panel], null)], null);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div#innerapp","div#innerapp",-1923845966),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [active_panel], null)], null);
 });
 demo.core.mount_root = (function demo$core$mount_root(){
 return reagent.core.render.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [demo.core.main_panel], null),document.getElementById("app"));

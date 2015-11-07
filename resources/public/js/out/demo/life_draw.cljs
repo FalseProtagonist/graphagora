@@ -1,8 +1,7 @@
 (ns demo.life-draw)
 
 (defn clear-stuff [] 
-  (-> js/d3 (.selectAll "svg") .remove)
-  (-> js/d3 (.selectAll "circle") .remove))
+  (-> js/d3 (.selectAll "svg") .remove))
 
 (defn draw-svg [width height]
   (-> js/d3 

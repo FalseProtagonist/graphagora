@@ -2,9 +2,7 @@
 goog.provide('demo.life_draw');
 goog.require('cljs.core');
 demo.life_draw.clear_stuff = (function demo$life_draw$clear_stuff(){
-d3.selectAll("svg").remove();
-
-return d3.selectAll("circle").remove();
+return d3.selectAll("svg").remove();
 });
 demo.life_draw.draw_svg = (function demo$life_draw$draw_svg(width,height){
 return d3.select("#life").append("svg").attr("width",width).attr("height",height);

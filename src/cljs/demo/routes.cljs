@@ -36,5 +36,7 @@
 
 (def history (pushy/pushy dispatch-route parse-url))
 
+(defn set-history [token] (pushy/set-token! history token))
+
 (defn app-routes []
   (pushy/start! history))

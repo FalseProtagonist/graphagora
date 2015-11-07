@@ -12,3 +12,5 @@
    k-fns))
 
 (defn log [msg & rest] (.log js/console (str msg (apply str rest))))
+
+(defn clear-component [] nil)

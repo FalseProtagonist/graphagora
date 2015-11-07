@@ -15,12 +15,16 @@
     :refer 
     [<! chan put! sliding-buffer sub pub timeout]]))
 
-(def panels {:life life/daddy-life :index index/daddy-index})
+(def panels {:life life/daddy-life 
+             :index 
+index/index-component 
+;index/daddy-index
+             })
 
 (defn main-panel [dev-mode]
   (let [active-panel (panels (@db/db :panel))]
     (log "active panel changed panel is" (@db/db :panel))
-    [:div [active-panel]]))
+    [:div#innerapp [active-panel]]))
 
 (defn mount-root []
   (r/render [main-panel]
