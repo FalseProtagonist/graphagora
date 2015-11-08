@@ -10,7 +10,7 @@
                       :value 0
                           :children 
                           [
-                           {:className "Game of Life" 
+                           {:className "Game of Lifee" 
                             :value 2000 
                             :link "life"
                             :packageName "aa"}

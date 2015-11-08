@@ -2,16 +2,18 @@ DONELIST
 set up figwheel DONE
 set up OM/channels/hiccup DONE
 game of life ->transitions DONE, buttons DONE, reset DONE, options?
+multiple pages DONE (in principle)
 
 TODONEXT
-data ferrying: how!? websockets? that specialist clojure thing?
-multiple pages/lazyload js?
 set up datomic
+set up re-com or bootstrap
+data ferrying: how!? websockets? that specialist clojure thing?
+lazy load js??
 
 TODOSOON
 refactor to channels?
 environment variables
-better web support->host openshift locally? -> fucking herok?u
+better web support->host openshift locally? -> fucking heroku?
 
 TODOBIG
 parse excel/pwningdatagrid->category theory

@@ -2,6 +2,9 @@
 
 (def select-values (comp vals select-keys))
 
+;(defn get-jskeys [obj] (apply str (.keys js/Object obj)))
+(def get-jskeys nil)
+
 (defn alter-map 
   "returns map with new values functions of old values
   given list of k-fn pairs"
@@ -23,5 +26,6 @@
 
 (def avail-width (-> js/document .-documentElement .-clientWidth))
 
+(defn d3-select [thing] (-> js/d3 (.select thing)))
 
 

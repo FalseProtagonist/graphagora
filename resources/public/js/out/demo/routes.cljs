@@ -11,6 +11,7 @@
 (def routes (silk/routes [[:home [[]]]
                           [:index [["index"]]]
                           [:dancing-graph [["dancing-graph"]]]
+                          [:spam [["spam"]]]
                           [:life [["life"]]]
                           [:catch [[:anything]]]]))
 
@@ -30,7 +31,9 @@
     (log (str "panel name is " panel-name))
     (if 
         (= panel-name :catch)
-      (do (log "redirected non-matching url to index")
+      (do (log "redirected non-matching url: " 
+               (:url matched-route) 
+               " to index")
           (pushy/set-token! history "index"))
       (swap! db #(assoc % :panel panel-name)))
    (log (str "db is " @db))))

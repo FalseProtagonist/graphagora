@@ -7,6 +7,7 @@
    [demo.life-core :as life]
    [demo.index :as index]
    [demo.graph :as graph]
+   [demo.spam :as spam]
    [demo.db :as db]
    [demo.routes :as routes]
    [reagent.core :as r]
@@ -17,6 +18,7 @@
 (def panels {:life life/daddy-life 
              :index index/index-component 
              :dancing-graph graph/force-component
+             :spam spam/spam-component
              })
 
 (defn main-panel [dev-mode]
